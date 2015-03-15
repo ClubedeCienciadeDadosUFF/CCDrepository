@@ -5,10 +5,5 @@
 
 Todo o material utilizado e gerado pelo clube estará presente neste repositório
     
-    Material de Estudo
-        - Inteligência Artificial
-        - Mineração de Dados
-        - Probabilidade e Estatística
-    
     Slides
         - Apresentação
