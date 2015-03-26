@@ -10,6 +10,6 @@ Todo o material gerado pelo clube estará presente neste repositório
 
     Tarefas
         Estudo
-            1 - Apresentação
+            1 - Apresentação pessoal
         Projeto
             1 - Montar um dataset a partir de dados da web
