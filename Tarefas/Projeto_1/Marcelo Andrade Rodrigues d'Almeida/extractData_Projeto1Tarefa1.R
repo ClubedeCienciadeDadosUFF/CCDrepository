@@ -1,4 +1,4 @@
-extractData_Projeto1Tarefa1 <- function(firstElement = 1, lastElement = "ALL", repair = FALSE, sample = 1000)
+extractData_Projeto1Tarefa1 <- function(firstElement = 1, lastElement = "ALL", repair = FALSE, update = FALSE, sample = 1000)
 {
     library(XML)
     dataset <- data.frame()
@@ -13,22 +13,22 @@ extractData_Projeto1Tarefa1 <- function(firstElement = 1, lastElement = "ALL", r
         dir.create(ocorrencias_LOG_PATH)
     }
      
-    n_ocorrencia <- firstElement
-    startIndex <- n_ocorrencia
+    n <- firstElement
+    startIndex <- n
     endOfPages <- FALSE
          
     missingValue <- list()
      
     while(ifelse(lastElement == "ALL", 
                  (!endOfPages), 
-                 (!endOfPages || (n_ocorrencia > lastElement))))
+                 (!endOfPages && (n <= lastElement))))
     {
-        result = tryCatch(
+        result <- tryCatch(
         {
-            url <- paste("http://www.ondefuiroubado.com.br/denuncias/", n_ocorrencia)
+            url <- paste("http://www.ondefuiroubado.com.br/denuncias/", n)
             html <- htmlTreeParse(url, useInternalNodes = TRUE, encoding = "UTF-8")
               
-            ##n_ocorrencia
+            n_ocorrencia <- xpathSApply(html, "//*[@id=\"id_report\"]", xmlValue)
             ##endereco <- xpathSApply(html, "//*[@class=\"sd-info-title\"]", xmlValue)
             latitude <- xpathSApply(html, "//*[@id=\"lat\"]", xmlValue)
             longitude <- xpathSApply(html, "//*[@id=\"lng\"]", xmlValue)
@@ -50,40 +50,73 @@ extractData_Projeto1Tarefa1 <- function(firstElement = 1, lastElement = "ALL", r
         }, warning = function(w) {
             ##warning-handler-code
         }, error = function(e) {
-            if (e == "failed to load HTTP resource")
+            error <<- e
+            print(paste("\\", e, "\\"))
+            if (e$message == "failed to load HTTP resource\n")
             {
-                endOfPages <- TRUE   
+                return("endOfPages")
             }
             else
             {
-                datasetLOG <- rbind(datasetLOG, data.frame(LOG =
-                    paste(n_ocorrencia, " [UNHANDLED_ERROR] ", e, " TimeStamp: ", Sys.time())
-                        , stringsAsFactors = FALSE))
-                print(paste("UNHANDLED_ERROR:  ", e))
+                return("UNHANDLED_ERROR")
             }
         }, finally = {
             ##cleanup-code
         })
         
+        suppressWarnings(
+        if(result == "endOfPages")
+        {
+            endOfPages = TRUE
+        }
+        else
+        {
+            if(result == "UNHANDLED_ERROR")
+            {
+                datasetLOG <- rbind(datasetLOG, data.frame(
+                    LOG = paste(n, " [UNHANDLED_ERROR] ", result, " TimeStamp: ", Sys.time()),
+                    stringsAsFactors = FALSE))
+                print(paste("UNHANDLED_ERROR:  ", result))
+            }
+        }
+        )
         datasetLOG <- rbind(datasetLOG, data.frame(LOG = 
-            paste("nº de ocorrência: ", n_ocorrencia, " lido.", " TimeStamp: ",Sys.time())
+            paste("nº de ocorrência: ", n, " lido.", " TimeStamp: ",Sys.time())
                 , stringsAsFactors = FALSE))
-        print(paste("nº de ocorrência: ", n_ocorrencia, " lido"))
+        print(paste("nº de ocorrência: ", n, " lido"))
         dataset <- rbind(dataset, ocorrenciaData)    
              
-        if (((n_ocorrencia %% sample) == 0) || endOfPages)
+        if (((n %% sample) == 0) || endOfPages || (n == lastElement))
         {
             time <- gsub(":", "-", Sys.time())
             setwd(paste(DEFAULT_PATH, "/", ocorrencias_PATH, sep = ""))
-            write.csv(dataset, paste("ocorrencias_ondefuiroubado ", startIndex, " - ", n_ocorrencia, ". TimeStamp ", time ,".csv", sep = ""))
+            write.csv(dataset, paste("ocorrencias_ondefuiroubado ", startIndex, " - ", n, ". TimeStamp ", time ,".csv", sep = ""))
             
             setwd(paste(DEFAULT_PATH, "/", ocorrencias_LOG_PATH, sep = ""))
-            write.table(datasetLOG, paste("[LOG]ocorrencias_ondefuiroubado ", startIndex, " - ", n_ocorrencia, ". TimeStamp ", time ,".txt", sep = ""))
-            startIndex <- n_ocorrencia + 1
+            write.table(datasetLOG, paste("[LOG]ocorrencias_ondefuiroubado ", startIndex, " - ", n, ". TimeStamp ", time ,".txt", sep = ""))
+            
+            dataset <- data.frame()
+            datasetLOG <- data.frame()
+            
+            startIndex <- n + 1
         }
                  
-        n_ocorrencia <- n_ocorrencia + 1
+        n <- n + 1
     } 
     setwd(DEFAULT_PATH)
-    return(dataset)
+}
+
+collect <- function()
+{
+    
+}
+
+update <- function()
+{
+    
+}
+
+repair <- function()
+{
+    
 }
