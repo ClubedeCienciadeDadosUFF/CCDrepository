@@ -14,3 +14,6 @@ Todo o material gerado pelo clube estará presente neste repositório
         Projeto
             0 - Estudo de R com o pacote Swirl
             1 - Montar um dataset a partir de dados da web
+        Opcional
+            1 - Swirl:'Getting and Cleaning Data'
+        
