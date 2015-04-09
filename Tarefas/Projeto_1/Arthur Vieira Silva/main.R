@@ -33,5 +33,8 @@ get_data <- function(page){
   text <- paste(title, type, date_time[1], date_time[2], paste(objects, collapse=","), sep=";")
 }
 
-text <- get_data("http://www.ondefuiroubado.com.br/denuncias/44783/assaltada-voltando-do-mercado")
-data <- read.table(col.names=c("title","type", "date", "time", "objects"), text=text, sep=';')
+text <- c()
+for(n in 44780:44790){
+  text <- c(get_data(paste("http://www.ondefuiroubado.com.br/denuncias/",n,"/assaltada-voltando-do-mercado", sep="")), text)
+}
+data <- read.table(col.names=c("title","type", "date", "time", "objects"), text=paste(text,collapse="\n"), sep=';')
