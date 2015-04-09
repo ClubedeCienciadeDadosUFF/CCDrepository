@@ -17,14 +17,17 @@ objects
 type <- robbed_page %>%
   html_nodes("section.sd-info-denuncia h2.sd-info-type") %>%
   html_text()
-str_trim(type)
+type <- str_trim(type)
 
 date_time <- robbed_page %>%
   html_nodes("section.sd-info-denuncia span.sd-info-data-hora") %>%
   html_text()
-str_trim(date_time)
+date_time <- strsplit(str_trim(date_time), " ")[[1]]
 
 description <- robbed_page %>%
   html_nodes("section.sd-info-denuncia div.sd-info-desc") %>%
   html_text()
-str_trim(description)
+description <- str_trim(description)
+
+text <- paste(title, type, date_time[1], date_time[2], sep=";")
+#data <- read.table(col.names=c("title","type", "date", "time", "objects"), )
