@@ -37,4 +37,5 @@ text <- c()
 for(n in 44780:44790){
   text <- c(get_data(paste("http://www.ondefuiroubado.com.br/denuncias/",n,"/assaltada-voltando-do-mercado", sep="")), text)
 }
-data <- read.table(col.names=c("title","type", "date", "time", "objects"), text=paste(text,collapse="\n"), sep=';')
+data <- read.table(col.names=c("title","type", "date", "time", "objects"), text=text, sep=';')
+write.csv2(data, file="data.csv", row.names= FALSE)
