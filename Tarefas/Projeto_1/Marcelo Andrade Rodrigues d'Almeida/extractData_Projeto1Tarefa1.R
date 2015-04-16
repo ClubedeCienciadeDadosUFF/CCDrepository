@@ -1,13 +1,16 @@
+#
+# Clube de Ciência de Dados - UFF (CCD-UFF)
+# Author: Marcelo A. R. d'Almeida
+#
+# Last modified: 2015/04/16
+#
+# This script has the objective to extract the data from 'ondefuiroubado' site
+#
+
 extractData_Projeto1Tarefa1 <- function(first_element = 1,
     last_element = "ALL", repair = FALSE, update = FALSE, sample = 1000){
     
-    # Clube de Ciência de Dados - UFF (CCD-UFF)
-    # Author: Marcelo A. R. d'Almeida
-    #
-    # Last modified: 2015/04/16
-    #
-    # This script has the objective to extract the data from 'ondefuiroubado'
-    # site
+    
     #
     # Args:
     #   first_element = 1     : points out the first element to start the 
