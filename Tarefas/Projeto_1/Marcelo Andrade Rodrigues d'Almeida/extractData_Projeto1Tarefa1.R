@@ -4,7 +4,7 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
     # Clube de Ciência de Dados - UFF (CCD-UFF)
     # Author: Marcelo A. R. d'Almeida
     #
-    # Last modified: 2015/04/14
+    # Last modified: 2015/04/16
     #
     # This script has the objective to extract the data from 'ondefuiroubado'
     # site
@@ -24,6 +24,19 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
     # Returns:
     #   Several files with the retrieved data and several log files with the 
     #   outcome
+    #
+    #
+    # Strong Points:
+    #   - Stores the entire data in a relatively regular small data packages 
+    #     (Default: 1000)
+    #   - Enables partial data retrieving (first-to-last element sweep)
+    #   - NOT YET IMPLEMENTED - Enables repairing the gathered data
+    #   - NOT YET IMPLEMENTED - Enables incremental updates to gathered data
+    #   - Stores log information
+    #   - Organize the retrieved data and log in directory tree (folders)
+    #   - Handles possible missing value in occurrence description
+    #   - Handles errors to allow uninterrupted sweeping
+    #   - File names contains date-time information
     #
     
     
@@ -113,7 +126,7 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
         suppressWarnings(
         if (result == "end_of_pages") {
             ## end_of_pages = TRUE # Only works if the middle pages are 
-                                   # 404 pages and final is other error
+                                   # 404 pages and final is another error
         } else {
             if (result == "UNHANDLED_ERROR") {
                 dataset_log <- rbind(dataset_log, data.frame(
