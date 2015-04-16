@@ -7,8 +7,11 @@
 # This script has the objective to extract the data from 'ondefuiroubado' site
 #
 
-extractData_Projeto1Tarefa1 <- function(first_element = 1,
-    last_element = "ALL", repair = FALSE, update = FALSE, sample = 1000){
+extract_data <- function(first_element = 1,
+                         last_element  = "ALL", 
+                         repair        = FALSE, 
+                         update        = FALSE, 
+                         sample        = 1000) {
     
     
     #
@@ -38,19 +41,23 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
     #   - Stores log information
     #   - Organize the retrieved data and log in directory tree (folders)
     #   - Handles possible missing value in occurrence description
-    #   - Handles errors to allow uninterrupted sweeping
+    #   - Error threshold to interrupt sweeping after too much error
+    #   - Handles errors to allow 'uninterrupted' sweeping
     #   - File names contains date-time information
-    #
-    
+    #    
     
     library(XML)
     dataset <- data.frame()
     dataset_log <- data.frame()
+    occurrence_data <- data.frame()
     
     DEFAULT_PATH <- getwd()
     OCCURRENCES_PATH <- "ondefuiroubado_occurrences"
     OCCURRENCES_LOG_PATH <- "ondefuiroubado_occurrences/LOG"
     BASE_URL <- "http://www.ondefuiroubado.com.br/denuncias/"
+    
+    ERROR_THRESHOLD <- sample
+    consecutive_error_count <- 0
     
     if (!file.exists(OCCURRENCES_PATH)) {
         dir.create(OCCURRENCES_PATH)
@@ -68,7 +75,7 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
                  (!end_of_pages), 
                  (!end_of_pages && (n <= last_element)))) {
         result <- tryCatch( {
-            url <- paste(BASE_URL, n)
+            url <- paste(BASE_URL, n, sep = "")
             
             # Retrieve the entire html page
             html <- htmlTreeParse(url, useInternalNodes = TRUE, 
@@ -116,35 +123,32 @@ extractData_Projeto1Tarefa1 <- function(first_element = 1,
         }, warning = function(w) {
             ##warning-handler-code
         }, error = function(e) {
-            error <- e
             print(paste("\\", e, "\\"))
-            if (e$message == "failed to load HTTP resource\n"){
-                return("end_of_pages")
-            } else {
-                return("UNHANDLED_ERROR")
-            }
+            return(paste("UNHANDLED_ERROR:", e))
         })
         
         # Code to handle error
         suppressWarnings(
-        if (result == "end_of_pages") {
-            ## end_of_pages = TRUE # Only works if the middle pages are 
-                                   # 404 pages and final is another error
+        if (grepl("UNHANDLED_ERROR", result)) {
+            dataset_log <- rbind(dataset_log, data.frame(
+                LOG = paste(n, " [UNHANDLED_ERROR] ", result, 
+                            " TimeStamp: ", Sys.time()),
+                stringsAsFactors = FALSE))
+            print(result)
+            consecutive_error_count <- consecutive_error_count + 1
         } else {
-            if (result == "UNHANDLED_ERROR") {
-                dataset_log <- rbind(dataset_log, data.frame(
-                    LOG = paste(n, " [UNHANDLED_ERROR] ", result, 
-                              " TimeStamp: ", Sys.time()),
-                    stringsAsFactors = FALSE))
-                print(paste("UNHANDLED_ERROR:  ", result))
-            }
+            consecutive_error_count <- 0   
         }
         )
         
+        if (consecutive_error_count == ERROR_THRESHOLD){
+            end_of_pages <- TRUE
+        }   
+        
         dataset_log <- rbind(dataset_log, data.frame(LOG = 
-            paste("occurrence: ", n, " read.", " TimeStamp: ",Sys.time())
+            paste("occurrence ", n, " read.", " TimeStamp: ",Sys.time())
                 , stringsAsFactors = FALSE))
-        print(paste("occurrence : ", n, " read"))
+        print(paste("occurrence ", n, " read"))
         dataset <- rbind(dataset, occurrence_data)    
              
         if (((n %% sample) == 0) || end_of_pages || (n == last_element)) {
