@@ -36,8 +36,8 @@ extract_data <- function(first_element = 1,
     #   - Stores the entire data in a relatively regular small data packages 
     #     (Default: 1000)
     #   - Enables partial data retrieving (first-to-last element sweep)
-    #   - NOT YET IMPLEMENTED - Enables repairing the gathered data
-    #   - NOT YET IMPLEMENTED - Enables incremental updates to gathered data
+    #   - Enables repairing the gathered data
+    #   - Enables incremental updates to gathered data
     #   - Stores log information
     #   - Organize the retrieved data and log in directory tree (folders)
     #   - Handles possible missing value in occurrence description
@@ -58,23 +58,52 @@ extract_data <- function(first_element = 1,
     
     ERROR_THRESHOLD <- sample
     consecutive_error_count <- 0
+
+    end_of_pages <- FALSE
+    
+    missing_value <- list()
     
     if (!file.exists(OCCURRENCES_PATH)) {
         dir.create(OCCURRENCES_PATH)
         dir.create(OCCURRENCES_LOG_PATH)
     }
-     
+    
+    if (update) {
+        file <- tail(list.files(), 1)
+        first_element <- as.numeric(read.csv(file, 
+                            skip = length(readLines(file)) - 1, 
+                            header = FALSE)[2]) + 1
+    }
+    
+    if (repair) {
+        setwd(paste(DEFAULT_PATH, "/", OCCURRENCES_PATH, sep = ""))
+        files <- list.files(pattern = "occurrence")
+        numbers_fixed <- c()
+        for (file in files) {
+            numbers_fixed <- c(numbers_fixed, 
+                               as.vector(unique(read.csv(file)[, 2])))
+            
+        }
+    }
+    
     n <- first_element
     start_index <- n
-    end_of_pages <- FALSE
-         
-    missing_value <- list()
-    
     
     while (ifelse(last_element == "ALL", 
                  (!end_of_pages), 
                  (!end_of_pages && (n <= last_element)))) {
         result <- tryCatch( {
+            
+            if (repair) {
+                while (n == numbers_fixed[1] 
+                       && !identical(numbers_fixed, integer(0))) {
+                    if (n < last_element) {
+                        n <- n + 1                        
+                    }
+                    numbers_fixed <- numbers_fixed[-1]
+                }
+            }
+            
             url <- paste(BASE_URL, n, sep = "")
             
             # Retrieve the entire html page
