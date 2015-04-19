@@ -2,7 +2,7 @@
 # Clube de Ciência de Dados - UFF (CCD-UFF)
 # Author: Marcelo A. R. d'Almeida
 #
-# Last modified: 2015/04/16
+# Last modified: 2015/04/19
 #
 # This script has the objective to extract the data from 'ondefuiroubado' site
 #
@@ -40,11 +40,31 @@ extract_data <- function(first_element = 1,
     #   - Enables incremental updates to gathered data
     #   - Stores log information
     #   - Organize the retrieved data and log in directory tree (folders)
+    #   - Handles stolen objects list to distinct variables 
+    #     (* Bernardo Costa Amaral *)
     #   - Handles possible missing value in occurrence description
     #   - Error threshold to interrupt sweeping after too much error
-    #   - Handles errors to allow 'uninterrupted' sweeping
+    #   - Handles errors to allow 'uninterrupted' sweeping 
     #   - File names contains date-time information
     #    
+    
+    getStolen <- function(objects, options) {
+        # convert list of characters of stolen objects into a Boolean vector
+        #
+        # Args:
+        #   objects: a list of characters representing all stolen objects
+        #   options: a vector of characters representing all possible  stolen objects
+        #
+        # Returns:
+        #   A Boolean vector representing the stolen vector
+        
+        res <- c()
+        for (obj in options){
+            res <- c(res, any(objects == obj))
+        }
+        return(res)
+    }
+    
     
     library(XML)
     dataset <- data.frame()
@@ -55,6 +75,15 @@ extract_data <- function(first_element = 1,
     OCCURRENCES_PATH <- "ondefuiroubado_occurrences"
     OCCURRENCES_LOG_PATH <- "ondefuiroubado_occurrences/LOG"
     BASE_URL <- "http://www.ondefuiroubado.com.br/denuncias/"
+    NEW_OCCURRENCE_URL <- 
+        "http://www.ondefuiroubado.com.br/rio-de-janeiro/RJ/nova-denuncia"
+    
+    new_occurrence_page <- htmlTreeParse(NEW_OCCURRENCE_URL, 
+                                         useInternalNodes = TRUE, 
+                                         encoding = "UTF-8")
+    ALL_OBJECTS <- xpathSApply(new_occurrence_page, 
+                               "//*[@class=\"nr-obj-name\"]", 
+                               xmlValue)
     
     ERROR_THRESHOLD <- sample
     consecutive_error_count <- 0
@@ -88,6 +117,7 @@ extract_data <- function(first_element = 1,
     
     n <- first_element
     start_index <- n
+    
     
     while (ifelse(last_element == "ALL", 
                  (!end_of_pages), 
@@ -132,12 +162,17 @@ extract_data <- function(first_element = 1,
             spoil                  <- xpathSApply(html, 
                                         "//*[@class=\"obj-label valign-middle\"]",
                                         xmlValue)
+            
             date_time              <- xpathSApply(html, 
                                         "//*[@class=\"sd-info-data-hora\"]",
                                         xmlValue)    
             occurrence_description <- xpathSApply(html, 
                                         "//*[@class=\"description valign-top\"]", 
                                         xmlValue)
+            
+            # Convert all possible stolen objects to distinct variables
+            spoil <- getStolen(spoil, ALL_OBJECTS)
+            spoil <- as.data.frame(t(spoil))
             
             # There is some occurrences that description is missing
             if (identical(occurrence_description, missing_value)) {
@@ -146,9 +181,10 @@ extract_data <- function(first_element = 1,
                          
             # organize the data retrieved
             occurrence_data <- data.frame(n_occurrence, latitude, longitude, 
-                                          city, occurrence_type, spoil, 
+                                          city, occurrence_type, 
+                                          occurrence_title, spoil, 
                                           date_time, occurrence_description)
-                         
+                                     
         }, warning = function(w) {
             ##warning-handler-code
         }, error = function(e) {
@@ -181,6 +217,20 @@ extract_data <- function(first_element = 1,
         dataset <- rbind(dataset, occurrence_data)    
              
         if (((n %% sample) == 0) || end_of_pages || (n == last_element)) {
+            
+            # Fix the possible stolen names            
+            first_p_s_o_position <- grep("V1", names(dataset), fixed = TRUE)[1]
+            ## 'first_p_s_o_position' means first possible stolen object 
+            ## position on dataframe
+            names(dataset)[first_p_s_o_position:(length(ALL_OBJECTS) - 1 +
+                            first_p_s_o_position)] <- t(ALL_OBJECTS)
+            
+            names(dataset) <- tolower(names(dataset))
+            names(dataset) <- iconv(names(dataset), from = "UTF-8",
+                                    to = "ASCII//TRANSLIT") 
+            names(dataset) <- gsub(" ", "_", names(dataset))
+            
+            
             time <- gsub(":", "-", Sys.time())
             setwd(paste(DEFAULT_PATH, "/", OCCURRENCES_PATH, sep = ""))
             write.csv(dataset, 
