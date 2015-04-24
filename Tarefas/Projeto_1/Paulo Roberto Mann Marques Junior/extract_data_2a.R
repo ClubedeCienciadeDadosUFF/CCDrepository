@@ -1,5 +1,5 @@
 #
-# Clube de Ciência de Dados - UFF (CCD-UFF)
+# Clube de CiÃªncia de Dados - UFF (CCD-UFF)
 # Author: Marcelo A. R. d'Almeida
 #
 # Last modified: 2015/04/19
@@ -69,6 +69,7 @@ extract_data <- function(first_element = 1,
   library(foreach)
   library(doParallel)
   library(XML)
+  library(iterators)
   cl <- makeCluster(detectCores())
   registerDoParallel(cl, cores = detectCores())
   
