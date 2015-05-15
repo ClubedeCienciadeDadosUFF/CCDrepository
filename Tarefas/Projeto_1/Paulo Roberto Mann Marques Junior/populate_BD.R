@@ -1,6 +1,6 @@
 #
-# Clube de Ciência de Dados - UFF (CCD-UFF)
-# Author: Paulo Roberto Mann Marques Júnior
+# Clube de CiÃªncia de Dados - UFF (CCD-UFF)
+# Author: Paulo Roberto Mann Marques JÃºnior
 #
 # Last modified: 2015/05/12
 #
@@ -17,17 +17,18 @@ populate <- function()
     library(RPostgreSQL)
     library(stringr)
     library(gdata)
-    #options(encoding = "UTF-8")
     drv <- dbDriver('PostgreSQL')
-    con <- dbConnect(drv, dbname='ondefuiroubado', port='5432', user='postgres', password='qwer1234')
+    con <- dbConnect(drv, dbname='occurrences', port='5432', user='postgres', password='root')
     data <- data.frame()
     files <- list.files(path = NEW_PATH, pattern = "*.csv")
     
-    for(v in 1:length(files)){
+    for(v in 1:1){#length(files)){
       data <- read.csv(files[v], strip.white = TRUE)
-      for(i in 1:nrow(data)){
+      for(i in 1:1){#nrow(data)){
         cnames <- colnames(data)
-        query <- "INSERT INTO occurrence(idoccurrence, latitude, longitude, city, type, title, object_1, object_2, object_3, object_4, object_5, object_6, object_7, object_8, object_9, object_10, object_11, object_12, object_13, object_14, object_15, object_16,object_17, object_18, object_19, date_time, description) VALUES("
+        query <- "INSERT INTO occurrence VALUES(0,"
+        #(code, idoccurrence, latitude, longitude, city, type, title, object_1, object_2, object_3, object_4, object_5, object_6, object_7, object_8, object_9, object_10, object_11, object_12, object_13, object_14, object_15, object_16,object_17, object_18, object_19, date_time, description)
+        
         queries <- character()
         for(j in 2:length(cnames)){
           if(j == 27) {

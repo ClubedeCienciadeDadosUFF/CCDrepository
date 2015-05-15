@@ -1,13 +1,11 @@
 CREATE TABLE Occurrence (
-  idOccurrence INT NOT NULL,
   code INT NOT NULL,
-  type VARCHAR(20) NOT NULL,
-  title VARCHAR(70) NOT NULL,
+  idOccurrence INT NOT NULL,
   latitude DOUBLE PRECISION NOT NULL,
   longitude DOUBLE PRECISION NOT NULL,
   city VARCHAR(50) NOT NULL,
-  date_time TIMESTAMP NOT NULL,
-  description VARCHAR(350) NULL,
+  type VARCHAR(20) NOT NULL,
+  title VARCHAR(70) NOT NULL,
   object_1 BOOLEAN NULL,
   object_2 BOOLEAN NULL,
   object_3 BOOLEAN NULL,
@@ -27,4 +25,6 @@ CREATE TABLE Occurrence (
   object_17 BOOLEAN NULL,
   object_18 BOOLEAN NULL,
   object_19 BOOLEAN NULL,
-  PRIMARY KEY (idOccurrence));
+  date_time TIMESTAMP NOT NULL,
+  description VARCHAR(350) NULL,
+  PRIMARY KEY (idOccurrence, code));
