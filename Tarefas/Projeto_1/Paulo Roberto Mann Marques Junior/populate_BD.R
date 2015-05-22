@@ -27,7 +27,7 @@ populate <- function()
   library(stringr)
   library(gdata)
   drv <- dbDriver('PostgreSQL')
-  con <- dbConnect(drv, dbname='ondefuiroubado', port='5432', user='postgres', password='qwer1234')
+  con <- dbConnect(drv, dbname='occurrences', port='5432', user='postgres', password='root')
   data <- data.frame()
   files <- list.files(path = NEW_PATH, pattern = "*.csv")
   query <- character(0)
@@ -39,9 +39,9 @@ populate <- function()
     for(i in 1:nrow(data)){
       cnames <- colnames(data)
       query <- "INSERT INTO occurrence VALUES("
-      #(code, idoccurrence, latitude, longitude, city, type, title, object_1, object_2, object_3, object_4, object_5, object_6, object_7, object_8, object_9, object_10, object_11, object_12, object_13, object_14, object_15, object_16,object_17, object_18, object_19, date_time, description)
-      query <- paste(query, data[i,2], ",", sep="")
+      #(id, code, latitude, longitude, city, type, title, object_1, object_2, object_3, object_4, object_5, object_6, object_7, object_8, object_9, object_10, object_11, object_12, object_13, object_14, object_15, object_16,object_17, object_18, object_19, date_time, description)
       queries <- character()
+      id <- data[i,j]
       for(j in 2:length(cnames)){
         if(j == 27) {
           date_time <- as.character(data[i,j])
@@ -80,7 +80,8 @@ populate <- function()
       result <- tryCatch( {
         rs <- dbSendQuery(con, query)
       }, error = function(e) {
-        errors <- rbind(errors, c(files[v], query, e$message))
+        print(c(id, e$message))
+        errors <- rbind(errors, c(id, e$message))
       })
     }
   }

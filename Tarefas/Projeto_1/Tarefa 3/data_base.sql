@@ -1,5 +1,5 @@
 CREATE TABLE Occurrence (
-  id SERIAL INT NOT NULL,
+  id BIGSERIAL PRIMARY KEY,
   code INT NOT NULL,
   latitude DOUBLE PRECISION NOT NULL,
   longitude DOUBLE PRECISION NOT NULL,
@@ -26,5 +26,5 @@ CREATE TABLE Occurrence (
   object_18 BOOLEAN NULL,
   object_19 BOOLEAN NULL,
   date_time TIMESTAMP NOT NULL,
-  description VARCHAR(350) NULL,
-  PRIMARY KEY (idOccurrence, code));
+  description VARCHAR(350) NULL
+  );
