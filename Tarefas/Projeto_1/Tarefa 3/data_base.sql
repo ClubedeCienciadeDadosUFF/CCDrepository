@@ -1,6 +1,6 @@
 CREATE TABLE Occurrence (
+  id SERIAL INT NOT NULL,
   code INT NOT NULL,
-  idOccurrence INT NOT NULL,
   latitude DOUBLE PRECISION NOT NULL,
   longitude DOUBLE PRECISION NOT NULL,
   city VARCHAR(50) NOT NULL,
