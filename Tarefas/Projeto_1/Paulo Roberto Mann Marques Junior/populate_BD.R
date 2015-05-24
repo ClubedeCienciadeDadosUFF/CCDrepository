@@ -1,8 +1,8 @@
 #
-# Clube de CiÃªncia de Dados - UFF (CCD-UFF)
-# Author: Paulo Roberto Mann Marques JÃºnior
+# Clube de Ciência de Dados - UFF (CCD-UFF)
+# Authors: Paulo Roberto Mann Marques Junior and Vitor Lourenço
 #
-# Last modified: 2015/05/12
+# Last modified: 2015/05/24
 #
 # This script has the objective to populate the database.
 #
@@ -13,6 +13,9 @@ populate <- function()
   OCCURRENCES_PATH <- "ondefuiroubado_occurrences"
   setwd(paste(DEFAULT_PATH, OCCURRENCES_PATH, sep="/"))
   NEW_PATH <- getwd()
+  
+  #This map define letters that we can not handle to a letter that we can handle, so we do not have
+  #problems to send a query over a transaction.
   unwanted_array = list('S'='S', 's'='s', 'Z'='Z', 'z'='z', 'À'='A', 'Á'='A', 'Â'='A', 'Ã'='A', 'Ä'='A',
                         'Å'='A', 'Æ'='A', 'Ç'='C', 'È'='E', 'É'='E','Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I',
                         'Î'='I', 'Ï'='I', 'Ñ'='N', 'Ò'='O', 'Ó'='O', 'Ô'='O', 'Õ'='O', 'Ö'='O', 'Ø'='O',
@@ -26,8 +29,11 @@ populate <- function()
   library(RPostgreSQL)
   library(stringr)
   library(gdata)
+  
+  #Database connection.
   drv <- dbDriver('PostgreSQL')
-  con <- dbConnect(drv, dbname='occurrences', port='5432', user='postgres', password='root')
+  con <- dbConnect( drv, dbname='occurrences', port='5432',
+                    user='postgres', password='root')
   data <- data.frame()
   files <- list.files(path = NEW_PATH, pattern = "*.csv")
   query <- character(0)
