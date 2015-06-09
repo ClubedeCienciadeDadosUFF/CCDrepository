@@ -24,3 +24,9 @@ Todo o material gerado pelo clube estará presente neste repositório
         Opcional
             1 - Swirl:'Getting and Cleaning Data'
         
+
+    Extras
+        Trabalho Disciplina Mineração de Dados
+            - Algoritmos de Extração de Regras com Taxonomia
+            - Trabalho Ferramenta Weka
+        
