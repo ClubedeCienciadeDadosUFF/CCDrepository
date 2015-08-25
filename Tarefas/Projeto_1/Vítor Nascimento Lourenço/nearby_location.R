@@ -19,10 +19,10 @@ get_nearby_location <- function() {
   
   for (i in 1:length(occ_db[,3])) {
     for (j in 1:length(loc_db[,1])) {
-      if(haversine(occ_db[i, 3], occ_db[i, 4], loc_db[j, 1], loc_db[j, 2]) <= 0.0005) {
-        x <- occ_db[i,]
-        x <- cbind(x, nearby_location = loc_db[j, 5])
-        new_db <- rbind(new_db, x)
+      if(haversine(occ_db[i,]$latitude, occ_db[i,]$longitude, loc_db[j,]$latitude, loc_db[j,]$longitude) <= 0.0005) {
+        location_list <- occ_db[i,]
+        location_list <- cbind(location_list, nearby_location = loc_db[j,]$type)
+        new_db <- rbind(new_db, location_list)
       }
     }
     print(paste("nova ocorrencia ", i))
