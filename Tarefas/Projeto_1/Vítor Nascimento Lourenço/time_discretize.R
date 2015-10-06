@@ -1,10 +1,25 @@
-time_discretize <- function() {
-  DEFAULT_PATH <- getwd()
-  nearby_location_db <- read.csv("nearby_location.csv")
+#
+# Clube de Ciência de Dados - UFF (CCD-UFF)
+# Author: Vítor Lourenço
+#
+# Last modified: 2015/10/01
+#
+# This script has the objective to discretize date and time
+#
+
+time_discretize <- function(dataset_path = "nearby_location.csv") {
+  
+  nearby_location_db <- read.csv(dataset_path)
   new_db <- data.frame()
-  for (i in 1:length(nearby_location_db[,1])) {
+  header_names <- colnames(nearby_location_db)
+  for (i in 1:length(nearby_location_db$n_occurrence)) {
     #date
-    new_line <- nearby_location_db[i, 1:26]
+    for(j in 1:length(header_names)) {
+      if(colnames(nearby_location_db[j]) == "date") {
+        new_line <- nearby_location_db[i, 1:j - 1]
+        break
+      }
+    }
     x <- toString(nearby_location_db[i,]$date)
     x <- weekdays(as.Date(x,'%Y-%m-%d'))
     if (x == "domingo" || x == "sábado") {
@@ -26,13 +41,11 @@ time_discretize <- function() {
     } else if(x >= 18 && x < 24) {
       new_line <- cbind(new_line, time = "night")
     }
-    new_line <- cbind(new_line, nearby_location = nearby_location_db[i, 29])
+    new_line <- cbind(new_line, nearby_location = nearby_location_db[i,]$nearby_location)
     new_db <- rbind(new_db, new_line)
-    if(i%%10000 == 0) {
-      write.csv(new_db, paste("time_discretize",".csv", sep = ""))
-      print(paste(i, " completed"))
-    }
   }
-  print(paste("All the ", i, " are completed"))
-  write.csv(new_db, paste("time_discretize",".csv", sep = ""))
+  drop_col <- c("","X","X.1") #drop some random column
+  new_db <- new_db[,!(names(new_db) %in% drop_col)]
+  #print(paste("All the ", i, " are completed"))
+  write.csv(new_db, paste("time_discretize_nit",".csv", sep = ""))
 }
