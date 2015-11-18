@@ -1,3 +1,14 @@
+normalize <- function(input) {
+  subf <- c(" ", "á", "é", "í", "ó", "ú", "â", "ê", "ô")
+  subt <- c("_", "a", "e", "i", "o", "u", "a", "e", "o")
+  input <- tolower(input)
+  for (i in 1:length(subf)) {
+    input <- gsub(subf[i], subt[i], input)
+  }
+  
+  return(input)
+}
+
 to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
   dataset <- read.csv(FILE_NAME)
   last_occ = -1
@@ -14,7 +25,8 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
       write(paste("occurrence(",
                   dataset$n_occurrence[i],
                   ",",
-                  substr(dataset$occurrence_type[i], 1, nchar(as.vector(dataset$occurrence_type[i]))-1),
+                  normilize(substr(dataset$occurrence_type[i],
+                                   1, nchar(as.vector(dataset$occurrence_type[i]))-1)),
                   ").", sep = ""),
             "prep.f", append = TRUE, sep = "\n")
       
@@ -23,7 +35,7 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
       write(paste("geo_position(",
                   last_occ,
                   ",",
-                  dataset$suburb[i],
+                  normalize(dataset$suburb[i]),
                   ").", sep = ""),
             "arg.b", append = TRUE, sep = "\n")
       #date
@@ -77,14 +89,14 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
     write(paste("nearby_location(",
                 last_occ,
                 ",",
-                dataset$nearby_location[i],
+                normilize(dataset$nearby_location[i]),
                 ").", sep = ""),
           "arg.b", append = TRUE, sep = "\n")
     #in
     write(paste("in(",
-                dataset$nearby_location[i],
+                normilize(dataset$nearby_location[i]),
                 ",",
-                last_sub,
+                normilize(last_sub),
                 ").", sep = ""),
           "arg.b", append = TRUE, sep = "\n")
   }

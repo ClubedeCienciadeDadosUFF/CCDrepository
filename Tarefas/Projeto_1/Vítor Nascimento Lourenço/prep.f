@@ -1,768 +1,768 @@
-occurrence(69,Roubo).
-occurrence(580,Roubo).
-occurrence(594,Roubo).
-occurrence(596,Furto).
-occurrence(597,Furto).
-occurrence(601,Roubo de Veículo).
-occurrence(602,Roubo).
-occurrence(604,Roubo).
-occurrence(606,Roubo).
-occurrence(615,Roubo de Veículo).
-occurrence(617,Furto).
-occurrence(623,Roubo).
-occurrence(626,Roubo).
-occurrence(627,Furto).
-occurrence(630,Furto).
-occurrence(631,Furto).
-occurrence(634,Furto).
-occurrence(646,Roubo).
-occurrence(647,Roubo).
-occurrence(655,Furto).
-occurrence(658,Assalto a grupo).
-occurrence(668,Furto).
-occurrence(670,Roubo).
-occurrence(843,Roubo).
-occurrence(870,Roubo).
-occurrence(884,Furto).
-occurrence(930,Furto).
-occurrence(10013,Roubo).
-occurrence(10034,Roubo).
-occurrence(10080,Sequestro Relâmpago).
-occurrence(10195,Furto).
-occurrence(10260,Furto).
-occurrence(10305,Assalto a grupo).
-occurrence(10308,Roubo).
-occurrence(10317,Furto).
-occurrence(10329,Roubo de Veículo).
-occurrence(10409,Roubo).
-occurrence(10428,Roubo).
-occurrence(10455,Arrombamento Veicular).
-occurrence(10464,Assalto a grupo).
-occurrence(10500,Roubo de Veículo).
-occurrence(10593,Furto).
-occurrence(10636,Roubo).
-occurrence(10691,Roubo de Veículo).
-occurrence(10794,Furto).
-occurrence(10851,Arrombamento Domiciliar).
-occurrence(1124,Arrombamento Veicular).
-occurrence(1127,Assalto a grupo).
-occurrence(1165,Furto).
-occurrence(1199,Sequestro Relâmpago).
-occurrence(1733,Roubo de Veículo).
-occurrence(1755,Furto).
-occurrence(1885,Roubo).
-occurrence(11105,Roubo de Veículo).
-occurrence(11121,Roubo).
-occurrence(11140,Furto).
-occurrence(11224,Roubo).
-occurrence(11466,Roubo).
-occurrence(11469,Roubo).
-occurrence(11499,Roubo de Veículo).
-occurrence(11505,Roubo).
-occurrence(11534,Assalto a grupo).
-occurrence(11543,Roubo).
-occurrence(11550,Roubo).
-occurrence(11589,Furto).
-occurrence(11598,Roubo).
-occurrence(11605,Roubo).
-occurrence(11610,Roubo).
-occurrence(11616,Roubo de Veículo).
-occurrence(11768,Roubo).
-occurrence(11789,Furto).
-occurrence(11790,Arrombamento Veicular).
-occurrence(11811,Furto).
-occurrence(11919,Roubo).
-occurrence(11999,Roubo).
-occurrence(12103,Roubo).
-occurrence(12205,Roubo).
-occurrence(12207,Roubo).
-occurrence(12355,Furto).
-occurrence(12435,Roubo).
-occurrence(12479,Roubo).
-occurrence(12654,Roubo).
-occurrence(12808,Roubo).
-occurrence(12825,Furto).
-occurrence(13155,Roubo).
-occurrence(13224,Roubo).
-occurrence(13275,Roubo).
-occurrence(13290,Roubo).
-occurrence(13350,Roubo).
-occurrence(13524,Assalto a grupo).
-occurrence(13556,Roubo).
-occurrence(13609,Roubo).
-occurrence(13610,Furto).
-occurrence(13611,Assalto a grupo).
-occurrence(13614,Roubo).
-occurrence(13615,Roubo).
-occurrence(13616,Roubo).
-occurrence(13617,Assalto a grupo).
-occurrence(13618,Roubo).
-occurrence(13619,Roubo).
-occurrence(13620,Roubo).
-occurrence(13621,Roubo).
-occurrence(13624,Roubo).
-occurrence(13625,Roubo).
-occurrence(13626,Roubo).
-occurrence(13628,Furto).
-occurrence(13633,Assalto a grupo).
-occurrence(13634,Furto).
-occurrence(13636,Roubo).
-occurrence(13639,Roubo).
-occurrence(13649,Roubo).
-occurrence(13654,Furto).
-occurrence(13656,Assalto a grupo).
-occurrence(13659,Roubo).
-occurrence(13676,Furto).
-occurrence(13680,Roubo).
-occurrence(13682,Roubo).
-occurrence(13684,Roubo).
-occurrence(13687,Roubo).
-occurrence(13689,Roubo).
-occurrence(13705,Roubo).
-occurrence(13715,Roubo).
-occurrence(13750,Roubo).
-occurrence(13794,Roubo).
-occurrence(13818,Roubo).
-occurrence(13823,Furto).
-occurrence(13982,Roubo).
-occurrence(13983,Roubo).
-occurrence(13986,Roubo).
-occurrence(13997,Assalto a grupo).
-occurrence(14012,Roubo de Veículo).
-occurrence(14023,Roubo).
-occurrence(14111,Assalto a grupo).
-occurrence(14223,Roubo).
-occurrence(14231,Roubo).
-occurrence(14411,Roubo).
-occurrence(14437,Roubo).
-occurrence(14494,Roubo de Veículo).
-occurrence(14498,Furto).
-occurrence(14509,Roubo).
-occurrence(14525,Roubo).
-occurrence(14557,Assalto a grupo).
-occurrence(14578,Furto).
-occurrence(14611,Roubo de Veículo).
-occurrence(14660,Roubo de Veículo).
-occurrence(14707,Sequestro Relâmpago).
-occurrence(14719,Furto).
-occurrence(14815,Roubo).
-occurrence(14964,Sequestro Relâmpago).
-occurrence(14975,Roubo).
-occurrence(14978,Furto).
-occurrence(15028,Sequestro Relâmpago).
-occurrence(15123,Furto).
-occurrence(15137,Roubo).
-occurrence(15185,Roubo).
-occurrence(15360,Furto).
-occurrence(15621,Roubo).
-occurrence(15639,Roubo).
-occurrence(15949,Furto).
-occurrence(15954,Roubo).
-occurrence(15956,Furto).
-occurrence(15975,Roubo).
-occurrence(16135,Furto).
-occurrence(16156,Roubo).
-occurrence(16207,Roubo).
-occurrence(16325,Assalto a grupo).
-occurrence(16327,Furto).
-occurrence(16329,Roubo).
-occurrence(16474,Roubo).
-occurrence(16483,Assalto a grupo).
-occurrence(16663,Roubo).
-occurrence(16700,Roubo).
-occurrence(16719,Roubo).
-occurrence(16826,Furto).
-occurrence(16853,Roubo).
-occurrence(16862,Furto).
-occurrence(16891,Roubo de Veículo).
-occurrence(16995,Roubo de Veículo).
-occurrence(17027,Furto).
-occurrence(17034,Furto).
-occurrence(17049,Roubo).
-occurrence(17056,Assalto a grupo).
-occurrence(17060,Furto).
-occurrence(17065,Roubo).
-occurrence(17070,Roubo).
-occurrence(17083,Roubo de Veículo).
-occurrence(17085,Roubo).
-occurrence(17086,Assalto a grupo).
-occurrence(17097,Furto).
-occurrence(17110,Roubo).
-occurrence(17247,Furto).
-occurrence(17261,Roubo de Veículo).
-occurrence(17276,Roubo de Veículo).
-occurrence(17283,Furto).
-occurrence(17284,Roubo).
-occurrence(17285,Roubo).
-occurrence(17286,Roubo).
-occurrence(17287,Roubo).
-occurrence(17288,Roubo).
-occurrence(17309,Roubo).
-occurrence(17315,Furto).
-occurrence(17318,Furto).
-occurrence(17323,Roubo).
-occurrence(17330,Roubo).
-occurrence(17350,Roubo de Veículo).
-occurrence(17353,Roubo).
-occurrence(17354,Roubo).
-occurrence(17355,Roubo).
-occurrence(17378,Arrombamento Veicular).
-occurrence(17386,Roubo).
-occurrence(17387,Roubo).
-occurrence(17409,Furto).
-occurrence(17482,Roubo).
-occurrence(17485,Roubo).
-occurrence(17490,Roubo).
-occurrence(17491,Roubo).
-occurrence(17492,Roubo).
-occurrence(17505,Furto).
-occurrence(17511,Roubo).
-occurrence(17520,Roubo de Veículo).
-occurrence(17524,Roubo de Veículo).
-occurrence(17525,Assalto a grupo).
-occurrence(17526,Roubo).
-occurrence(17532,Roubo).
-occurrence(17549,Roubo de Veículo).
-occurrence(17570,Roubo).
-occurrence(17587,Roubo).
-occurrence(17589,Roubo).
-occurrence(17590,Furto).
-occurrence(17686,Roubo).
-occurrence(17709,Roubo de Veículo).
-occurrence(17749,Roubo de Veículo).
-occurrence(17771,Roubo).
-occurrence(17799,Roubo).
-occurrence(17807,Roubo).
-occurrence(17855,Roubo).
-occurrence(17991,Roubo).
-occurrence(18042,Roubo).
-occurrence(18070,Furto).
-occurrence(18089,Roubo).
-occurrence(18100,Furto).
-occurrence(18105,Roubo).
-occurrence(18106,Assalto a grupo).
-occurrence(18108,Roubo).
-occurrence(18112,Assalto a grupo).
-occurrence(18116,Arrombamento Veicular).
-occurrence(18119,Assalto a grupo).
-occurrence(18121,Roubo).
-occurrence(18123,Assalto a grupo).
-occurrence(18125,Roubo).
-occurrence(18131,Roubo de Veículo).
-occurrence(18159,Furto).
-occurrence(18181,Roubo).
-occurrence(18183,Roubo).
-occurrence(18187,Furto).
-occurrence(18188,Roubo).
-occurrence(18197,Roubo).
-occurrence(18202,Roubo).
-occurrence(18203,Furto).
-occurrence(18204,Roubo).
-occurrence(18219,Furto).
-occurrence(18230,Roubo).
-occurrence(18239,Roubo de Veículo).
-occurrence(18242,Assalto a grupo).
-occurrence(18247,Roubo).
-occurrence(18250,Roubo).
-occurrence(18262,Roubo de Veículo).
-occurrence(18286,Roubo de Veículo).
-occurrence(18290,Roubo).
-occurrence(18307,Roubo).
-occurrence(18308,Roubo).
-occurrence(18313,Roubo).
-occurrence(18318,Roubo).
-occurrence(18321,Furto).
-occurrence(18328,Roubo de Veículo).
-occurrence(18353,Roubo).
-occurrence(18365,Roubo de Veículo).
-occurrence(18367,Roubo).
-occurrence(18465,Roubo).
-occurrence(18487,Roubo).
-occurrence(18506,Roubo de Veículo).
-occurrence(18567,Furto).
-occurrence(18640,Arrombamento Veicular).
-occurrence(18688,Roubo).
-occurrence(18723,Roubo).
-occurrence(18726,Roubo).
-occurrence(18770,Roubo de Veículo).
-occurrence(18775,Roubo).
-occurrence(18794,Roubo).
-occurrence(18883,Furto).
-occurrence(18938,Roubo).
-occurrence(18946,Roubo).
-occurrence(18949,Roubo de Veículo).
-occurrence(18958,Roubo).
-occurrence(19130,Roubo).
-occurrence(19211,Assalto a grupo).
-occurrence(19231,Roubo de Veículo).
-occurrence(19260,Roubo).
-occurrence(19291,Assalto a grupo).
-occurrence(19312,Roubo de Veículo).
-occurrence(19340,Roubo).
-occurrence(19347,Arrombamento Domiciliar).
-occurrence(19518,Roubo).
-occurrence(19660,Roubo).
-occurrence(19664,Roubo de Veículo).
-occurrence(19865,Roubo).
-occurrence(20980,Roubo).
-occurrence(2090,Roubo).
-occurrence(2135,Furto).
-occurrence(2139,Furto).
-occurrence(2185,Roubo).
-occurrence(2331,Roubo).
-occurrence(2432,Furto).
-occurrence(2486,Roubo).
-occurrence(2522,Furto).
-occurrence(2555,Furto).
-occurrence(2666,Roubo).
-occurrence(2711,Roubo).
-occurrence(2790,Assalto a grupo).
-occurrence(2813,Furto).
-occurrence(21071,Roubo).
-occurrence(21317,Roubo).
-occurrence(21371,Roubo).
-occurrence(21436,Furto).
-occurrence(21780,Furto).
-occurrence(22087,Furto).
-occurrence(22195,Roubo).
-occurrence(22256,Roubo).
-occurrence(22721,Roubo).
-occurrence(23204,Furto).
-occurrence(23398,Roubo).
-occurrence(23470,Roubo).
-occurrence(23696,Furto).
-occurrence(23734,Roubo).
-occurrence(24110,Roubo).
-occurrence(24339,Roubo).
-occurrence(24579,Roubo).
-occurrence(25061,Roubo).
-occurrence(25233,Roubo).
-occurrence(25273,Arrombamento Domiciliar).
-occurrence(25294,Roubo de Veículo).
-occurrence(25426,Roubo).
-occurrence(25538,Assalto a grupo).
-occurrence(25777,Roubo).
-occurrence(25966,Roubo).
-occurrence(26141,Assalto a grupo).
-occurrence(26143,Roubo).
-occurrence(26268,Roubo).
-occurrence(26475,Roubo).
-occurrence(26480,Roubo).
-occurrence(26515,Roubo).
-occurrence(26637,Roubo).
-occurrence(27132,Roubo).
-occurrence(27341,Furto).
-occurrence(27382,Roubo).
-occurrence(27538,Roubo).
-occurrence(27618,Roubo).
-occurrence(27627,Roubo).
-occurrence(27703,Roubo).
-occurrence(27742,Roubo).
-occurrence(27818,Roubo).
-occurrence(28055,Roubo).
-occurrence(28180,Roubo).
-occurrence(28194,Arrombamento Veicular).
-occurrence(28201,Furto).
-occurrence(28293,Roubo).
-occurrence(28744,Roubo).
-occurrence(28820,Roubo).
-occurrence(28890,Roubo).
-occurrence(28916,Roubo).
-occurrence(29053,Roubo).
-occurrence(29061,Roubo).
-occurrence(29063,Furto).
-occurrence(29148,Furto).
-occurrence(29156,Furto).
-occurrence(29194,Roubo de Veículo).
-occurrence(29277,Roubo).
-occurrence(29340,Furto).
-occurrence(29367,Roubo de Veículo).
-occurrence(29408,Roubo de Veículo).
-occurrence(29444,Furto).
-occurrence(29588,Roubo).
-occurrence(29635,Roubo de Veículo).
-occurrence(29832,Roubo).
-occurrence(29855,Roubo de Veículo).
-occurrence(29859,Roubo de Veículo).
-occurrence(29868,Furto).
-occurrence(29913,Roubo de Veículo).
-occurrence(29936,Arrombamento Veicular).
-occurrence(29996,Roubo).
-occurrence(30029,Roubo de Veículo).
-occurrence(30093,Furto).
-occurrence(30101,Roubo).
-occurrence(30136,Furto).
-occurrence(30170,Roubo).
-occurrence(30178,Roubo).
-occurrence(30183,Roubo).
-occurrence(30186,Roubo de Veículo).
-occurrence(30190,Roubo).
-occurrence(30209,Roubo).
-occurrence(30231,Roubo de Veículo).
-occurrence(30233,Assalto a grupo).
-occurrence(30235,Roubo).
-occurrence(30253,Roubo).
-occurrence(30281,Furto).
-occurrence(30415,Roubo).
-occurrence(30449,Assalto a grupo).
-occurrence(30470,Furto).
-occurrence(30511,Roubo).
-occurrence(30548,Assalto a grupo).
-occurrence(30610,Arrombamento Veicular).
-occurrence(30614,Roubo).
-occurrence(30664,Assalto a grupo).
-occurrence(30668,Roubo).
-occurrence(30732,Roubo de Veículo).
-occurrence(30746,Furto).
-occurrence(30779,Roubo).
-occurrence(30805,Furto).
-occurrence(30822,Roubo).
-occurrence(30849,Roubo de Veículo).
-occurrence(30879,Roubo).
-occurrence(30911,Roubo de Veículo).
-occurrence(3025,Roubo).
-occurrence(3158,Furto).
-occurrence(3261,Roubo).
-occurrence(3331,Roubo).
-occurrence(3370,Furto).
-occurrence(3385,Arrombamento Veicular).
-occurrence(3644,Arrombamento Domiciliar).
-occurrence(3657,Roubo de Veículo).
-occurrence(31095,Roubo).
-occurrence(31138,Furto).
-occurrence(31306,Furto).
-occurrence(31308,Roubo).
-occurrence(31500,Roubo de Veículo).
-occurrence(31521,Roubo).
-occurrence(31605,Arrombamento Veicular).
-occurrence(31651,Roubo de Veículo).
-occurrence(31689,Roubo).
-occurrence(31735,Assalto a grupo).
-occurrence(31784,Roubo).
-occurrence(31846,Furto).
-occurrence(32202,Arrombamento Veicular).
-occurrence(32363,Roubo).
-occurrence(32434,Furto).
-occurrence(32554,Roubo de Veículo).
-occurrence(32604,Roubo).
-occurrence(32631,Roubo).
-occurrence(32643,Roubo).
-occurrence(32698,Roubo de Veículo).
-occurrence(32903,Roubo).
-occurrence(32904,Roubo).
-occurrence(32908,Roubo).
-occurrence(33103,Furto).
-occurrence(33292,Roubo).
-occurrence(33498,Roubo de Veículo).
-occurrence(33718,Roubo).
-occurrence(33735,Furto).
-occurrence(33757,Roubo).
-occurrence(34005,Roubo).
-occurrence(34154,Furto).
-occurrence(34169,Furto).
-occurrence(34182,Roubo).
-occurrence(34204,Furto).
-occurrence(34220,Roubo).
-occurrence(34257,Roubo).
-occurrence(34297,Assalto a grupo).
-occurrence(34564,Roubo).
-occurrence(34591,Roubo).
-occurrence(34607,Furto).
-occurrence(34669,Arrombamento Veicular).
-occurrence(34854,Roubo).
-occurrence(35222,Roubo).
-occurrence(35244,Roubo).
-occurrence(35323,Furto).
-occurrence(35324,Furto).
-occurrence(35346,Roubo de Veículo).
-occurrence(35401,Roubo).
-occurrence(35498,Furto).
-occurrence(35566,Roubo de Veículo).
-occurrence(35823,Roubo).
-occurrence(35845,Furto).
-occurrence(35910,Roubo).
-occurrence(36028,Roubo).
-occurrence(36076,Roubo).
-occurrence(36158,Roubo de Veículo).
-occurrence(36240,Furto).
-occurrence(36863,Roubo).
-occurrence(36867,Arrombamento Domiciliar).
-occurrence(36873,Roubo).
-occurrence(36888,Roubo).
-occurrence(37070,Roubo).
-occurrence(37376,Assalto a grupo).
-occurrence(37740,Roubo de Veículo).
-occurrence(37984,Furto).
-occurrence(38002,Roubo).
-occurrence(38062,Roubo).
-occurrence(38357,Roubo de Veículo).
-occurrence(38406,Roubo).
-occurrence(38523,Roubo).
-occurrence(38578,Roubo de Veículo).
-occurrence(38605,Roubo de Veículo).
-occurrence(38609,Roubo).
-occurrence(38671,Roubo).
-occurrence(38859,Roubo).
-occurrence(39407,Roubo).
-occurrence(39691,Furto).
-occurrence(39736,Roubo).
-occurrence(39740,Roubo).
-occurrence(39741,Roubo).
-occurrence(39841,Roubo).
-occurrence(39948,Furto).
-occurrence(40038,Roubo).
-occurrence(40133,Roubo).
-occurrence(40217,Furto).
-occurrence(40491,Furto).
-occurrence(40513,Roubo de Veículo).
-occurrence(40615,Roubo).
-occurrence(40708,Roubo de Veículo).
-occurrence(40826,Roubo).
-occurrence(40883,Assalto a grupo).
-occurrence(4567,Roubo).
-occurrence(4641,Roubo).
-occurrence(4995,Furto).
-occurrence(41027,Roubo).
-occurrence(41032,Furto).
-occurrence(41121,Roubo).
-occurrence(41210,Furto).
-occurrence(41233,Furto).
-occurrence(41469,Roubo).
-occurrence(41575,Furto).
-occurrence(41639,Furto).
-occurrence(41757,Roubo).
-occurrence(41780,Furto).
-occurrence(41787,Roubo).
-occurrence(41846,Roubo).
-occurrence(41872,Roubo).
-occurrence(41873,Roubo).
-occurrence(41992,Roubo).
-occurrence(42019,Roubo).
-occurrence(42135,Arrombamento Veicular).
-occurrence(42137,Furto).
-occurrence(42140,Roubo).
-occurrence(42604,Furto).
-occurrence(42749,Roubo).
-occurrence(43051,Roubo).
-occurrence(43054,Roubo).
-occurrence(43074,Roubo).
-occurrence(43108,Roubo).
-occurrence(43120,Roubo).
-occurrence(43121,Roubo).
-occurrence(43389,Roubo).
-occurrence(43393,Furto).
-occurrence(43397,Furto).
-occurrence(43602,Roubo).
-occurrence(43862,Roubo).
-occurrence(43913,Roubo).
-occurrence(43918,Roubo).
-occurrence(43990,Roubo).
-occurrence(43993,Roubo).
-occurrence(43996,Roubo).
-occurrence(44000,Roubo).
-occurrence(44004,Roubo).
-occurrence(44033,Roubo).
-occurrence(44034,Roubo).
-occurrence(44037,Roubo).
-occurrence(44040,Roubo).
-occurrence(44132,Roubo).
-occurrence(44144,Roubo).
-occurrence(44152,Assalto a grupo).
-occurrence(44165,Roubo).
-occurrence(44166,Roubo).
-occurrence(44168,Roubo).
-occurrence(44188,Furto).
-occurrence(44189,Roubo).
-occurrence(44308,Furto).
-occurrence(44314,Roubo).
-occurrence(44319,Roubo).
-occurrence(44320,Roubo).
-occurrence(44327,Roubo).
-occurrence(44328,Roubo).
-occurrence(44503,Roubo de Veículo).
-occurrence(44504,Roubo de Veículo).
-occurrence(44534,Furto).
-occurrence(44679,Furto).
-occurrence(44705,Roubo).
-occurrence(44783,Roubo).
-occurrence(44910,Furto).
-occurrence(44967,Roubo).
-occurrence(44990,Roubo).
-occurrence(45107,Roubo).
-occurrence(45141,Roubo).
-occurrence(45327,Roubo).
-occurrence(45417,Roubo).
-occurrence(45667,Roubo).
-occurrence(45671,Furto).
-occurrence(45788,Roubo de Veículo).
-occurrence(45991,Roubo).
-occurrence(46176,Arrombamento Domiciliar).
-occurrence(46177,Roubo).
-occurrence(46204,Roubo).
-occurrence(46215,Arrombamento Domiciliar).
-occurrence(46229,Roubo).
-occurrence(46246,Roubo).
-occurrence(46253,Furto).
-occurrence(46276,Roubo).
-occurrence(46279,Roubo).
-occurrence(46290,Sequestro Relâmpago).
-occurrence(46351,Arrombamento Domiciliar).
-occurrence(46379,Roubo).
-occurrence(46383,Arrombamento Domiciliar).
-occurrence(46395,Assalto a grupo).
-occurrence(46424,Roubo).
-occurrence(46425,Roubo).
-occurrence(46429,Furto).
-occurrence(46484,Furto).
-occurrence(46540,Roubo).
-occurrence(46566,Roubo).
-occurrence(46761,Furto).
-occurrence(46783,Assalto a grupo).
-occurrence(46858,Furto).
-occurrence(46860,Furto).
-occurrence(46906,Roubo).
-occurrence(46912,Arrombamento Domiciliar).
-occurrence(47075,Roubo).
-occurrence(47076,Roubo).
-occurrence(47250,Roubo).
-occurrence(47259,Roubo de Veículo).
-occurrence(47387,Roubo).
-occurrence(47691,Furto).
-occurrence(47926,Roubo).
-occurrence(47968,Roubo de Veículo).
-occurrence(47971,Roubo de Veículo).
-occurrence(47980,Roubo).
-occurrence(48011,Roubo).
-occurrence(48145,Roubo de Veículo).
-occurrence(48154,Roubo).
-occurrence(48157,Roubo).
-occurrence(48218,Roubo).
-occurrence(48238,Roubo).
-occurrence(48266,Roubo).
-occurrence(48275,Furto).
-occurrence(48314,Roubo).
-occurrence(48356,Roubo de Veículo).
-occurrence(48367,Roubo de Veículo).
-occurrence(48368,Sequestro Relâmpago).
-occurrence(48398,Arrastão).
-occurrence(48413,Roubo).
-occurrence(48445,Roubo).
-occurrence(48514,Assalto a grupo).
-occurrence(48515,Roubo).
-occurrence(48562,Tentativa de Assalto).
-occurrence(48591,Roubo).
-occurrence(48651,Roubo).
-occurrence(48665,Roubo de Veículo).
-occurrence(48701,Tentativa de Assalto).
-occurrence(48751,Roubo).
-occurrence(48890,Furto).
-occurrence(48948,Roubo de Veículo).
-occurrence(48954,Roubo).
-occurrence(6160,Furto).
-occurrence(6250,Roubo).
-occurrence(6392,Roubo).
-occurrence(6833,Furto).
-occurrence(7004,Furto).
-occurrence(7176,Roubo).
-occurrence(7181,Roubo).
-occurrence(7228,Roubo).
-occurrence(7351,Roubo).
-occurrence(7374,Furto).
-occurrence(7479,Furto).
-occurrence(7516,Arrombamento Veicular).
-occurrence(7647,Roubo de Veículo).
-occurrence(7759,Roubo).
-occurrence(7823,Roubo).
-occurrence(8027,Arrombamento Veicular).
-occurrence(8077,Sequestro Relâmpago).
-occurrence(8111,Roubo).
-occurrence(8136,Roubo).
-occurrence(8151,Roubo).
-occurrence(8285,Roubo).
-occurrence(8509,Roubo).
-occurrence(8514,Assalto a grupo).
-occurrence(8516,Furto).
-occurrence(8518,Furto).
-occurrence(8524,Furto).
-occurrence(8533,Roubo).
-occurrence(8536,Roubo de Veículo).
-occurrence(8538,Roubo).
-occurrence(8542,Roubo).
-occurrence(8549,Arrombamento Veicular).
-occurrence(8552,Furto).
-occurrence(8556,Furto).
-occurrence(8562,Roubo).
-occurrence(8565,Furto).
-occurrence(8580,Roubo).
-occurrence(8584,Roubo de Veículo).
-occurrence(8585,Arrombamento Veicular).
-occurrence(8588,Roubo).
-occurrence(8591,Roubo).
-occurrence(8593,Roubo).
-occurrence(8599,Roubo).
-occurrence(8600,Assalto a grupo).
-occurrence(8610,Arrombamento Veicular).
-occurrence(8612,Furto).
-occurrence(8621,Roubo).
-occurrence(8629,Furto).
-occurrence(8635,Roubo).
-occurrence(8637,Furto).
-occurrence(8638,Roubo).
-occurrence(8644,Furto).
-occurrence(8647,Furto).
-occurrence(8649,Roubo).
-occurrence(8651,Roubo).
-occurrence(8658,Roubo).
-occurrence(8686,Roubo de Veículo).
-occurrence(8699,Roubo).
-occurrence(8717,Roubo).
-occurrence(8723,Furto).
-occurrence(8781,Roubo).
-occurrence(8791,Roubo).
-occurrence(8808,Furto).
-occurrence(8959,Roubo).
-occurrence(9033,Roubo).
-occurrence(9088,Roubo).
-occurrence(9115,Roubo).
-occurrence(9133,Furto).
-occurrence(9214,Roubo).
-occurrence(9216,Roubo de Veículo).
-occurrence(9256,Roubo).
-occurrence(9300,Roubo).
-occurrence(9318,Roubo).
-occurrence(9320,Assalto a grupo).
-occurrence(9327,Roubo).
-occurrence(9328,Roubo).
-occurrence(9386,Roubo).
-occurrence(9391,Roubo).
-occurrence(9393,Roubo).
-occurrence(9394,Furto).
-occurrence(9404,Roubo).
-occurrence(9405,Roubo).
-occurrence(9406,Roubo).
-occurrence(9413,Roubo).
-occurrence(9440,Arrombamento Domiciliar).
-occurrence(9445,Furto).
-occurrence(9476,Roubo).
-occurrence(9485,Roubo).
-occurrence(9498,Roubo).
-occurrence(9506,Roubo).
-occurrence(9527,Roubo).
-occurrence(9531,Roubo).
-occurrence(9550,Arrombamento Domiciliar).
-occurrence(9554,Roubo).
-occurrence(9595,Roubo).
-occurrence(9596,Roubo).
-occurrence(9604,Roubo).
-occurrence(9637,Roubo).
-occurrence(9649,Roubo).
-occurrence(9659,Roubo).
-occurrence(9669,Roubo).
-occurrence(9671,Roubo).
-occurrence(9677,Roubo).
-occurrence(9690,Roubo).
-occurrence(9771,Roubo).
-occurrence(9804,Furto).
-occurrence(9820,Furto).
-occurrence(9890,Roubo de Veículo).
-occurrence(10000,Furto).
+occurrence(69,roubo).
+occurrence(580,roubo).
+occurrence(594,roubo).
+occurrence(596,furto).
+occurrence(597,furto).
+occurrence(601,roubo_de_veiculo).
+occurrence(602,roubo).
+occurrence(604,roubo).
+occurrence(606,roubo).
+occurrence(615,roubo_de_veiculo).
+occurrence(617,furto).
+occurrence(623,roubo).
+occurrence(626,roubo).
+occurrence(627,furto).
+occurrence(630,furto).
+occurrence(631,furto).
+occurrence(634,furto).
+occurrence(646,roubo).
+occurrence(647,roubo).
+occurrence(655,furto).
+occurrence(658,assalto_a_grupo).
+occurrence(668,furto).
+occurrence(670,roubo).
+occurrence(843,roubo).
+occurrence(870,roubo).
+occurrence(884,furto).
+occurrence(930,furto).
+occurrence(10013,roubo).
+occurrence(10034,roubo).
+occurrence(10080,sequestro_relampago).
+occurrence(10195,furto).
+occurrence(10260,furto).
+occurrence(10305,assalto_a_grupo).
+occurrence(10308,roubo).
+occurrence(10317,furto).
+occurrence(10329,roubo_de_veiculo).
+occurrence(10409,roubo).
+occurrence(10428,roubo).
+occurrence(10455,arrombamento_veicular).
+occurrence(10464,assalto_a_grupo).
+occurrence(10500,roubo_de_veiculo).
+occurrence(10593,furto).
+occurrence(10636,roubo).
+occurrence(10691,roubo_de_veiculo).
+occurrence(10794,furto).
+occurrence(10851,arrombamento_domiciliar).
+occurrence(1124,arrombamento_veicular).
+occurrence(1127,assalto_a_grupo).
+occurrence(1165,furto).
+occurrence(1199,sequestro_relampago).
+occurrence(1733,roubo_de_veiculo).
+occurrence(1755,furto).
+occurrence(1885,roubo).
+occurrence(11105,roubo_de_veiculo).
+occurrence(11121,roubo).
+occurrence(11140,furto).
+occurrence(11224,roubo).
+occurrence(11466,roubo).
+occurrence(11469,roubo).
+occurrence(11499,roubo_de_veiculo).
+occurrence(11505,roubo).
+occurrence(11534,assalto_a_grupo).
+occurrence(11543,roubo).
+occurrence(11550,roubo).
+occurrence(11589,furto).
+occurrence(11598,roubo).
+occurrence(11605,roubo).
+occurrence(11610,roubo).
+occurrence(11616,roubo_de_veiculo).
+occurrence(11768,roubo).
+occurrence(11789,furto).
+occurrence(11790,arrombamento_veicular).
+occurrence(11811,furto).
+occurrence(11919,roubo).
+occurrence(11999,roubo).
+occurrence(12103,roubo).
+occurrence(12205,roubo).
+occurrence(12207,roubo).
+occurrence(12355,furto).
+occurrence(12435,roubo).
+occurrence(12479,roubo).
+occurrence(12654,roubo).
+occurrence(12808,roubo).
+occurrence(12825,furto).
+occurrence(13155,roubo).
+occurrence(13224,roubo).
+occurrence(13275,roubo).
+occurrence(13290,roubo).
+occurrence(13350,roubo).
+occurrence(13524,assalto_a_grupo).
+occurrence(13556,roubo).
+occurrence(13609,roubo).
+occurrence(13610,furto).
+occurrence(13611,assalto_a_grupo).
+occurrence(13614,roubo).
+occurrence(13615,roubo).
+occurrence(13616,roubo).
+occurrence(13617,assalto_a_grupo).
+occurrence(13618,roubo).
+occurrence(13619,roubo).
+occurrence(13620,roubo).
+occurrence(13621,roubo).
+occurrence(13624,roubo).
+occurrence(13625,roubo).
+occurrence(13626,roubo).
+occurrence(13628,furto).
+occurrence(13633,assalto_a_grupo).
+occurrence(13634,furto).
+occurrence(13636,roubo).
+occurrence(13639,roubo).
+occurrence(13649,roubo).
+occurrence(13654,furto).
+occurrence(13656,assalto_a_grupo).
+occurrence(13659,roubo).
+occurrence(13676,furto).
+occurrence(13680,roubo).
+occurrence(13682,roubo).
+occurrence(13684,roubo).
+occurrence(13687,roubo).
+occurrence(13689,roubo).
+occurrence(13705,roubo).
+occurrence(13715,roubo).
+occurrence(13750,roubo).
+occurrence(13794,roubo).
+occurrence(13818,roubo).
+occurrence(13823,furto).
+occurrence(13982,roubo).
+occurrence(13983,roubo).
+occurrence(13986,roubo).
+occurrence(13997,assalto_a_grupo).
+occurrence(14012,roubo_de_veiculo).
+occurrence(14023,roubo).
+occurrence(14111,assalto_a_grupo).
+occurrence(14223,roubo).
+occurrence(14231,roubo).
+occurrence(14411,roubo).
+occurrence(14437,roubo).
+occurrence(14494,roubo_de_veiculo).
+occurrence(14498,furto).
+occurrence(14509,roubo).
+occurrence(14525,roubo).
+occurrence(14557,assalto_a_grupo).
+occurrence(14578,furto).
+occurrence(14611,roubo_de_veiculo).
+occurrence(14660,roubo_de_veiculo).
+occurrence(14707,sequestro_relampago).
+occurrence(14719,furto).
+occurrence(14815,roubo).
+occurrence(14964,sequestro_relampago).
+occurrence(14975,roubo).
+occurrence(14978,furto).
+occurrence(15028,sequestro_relampago).
+occurrence(15123,furto).
+occurrence(15137,roubo).
+occurrence(15185,roubo).
+occurrence(15360,furto).
+occurrence(15621,roubo).
+occurrence(15639,roubo).
+occurrence(15949,furto).
+occurrence(15954,roubo).
+occurrence(15956,furto).
+occurrence(15975,roubo).
+occurrence(16135,furto).
+occurrence(16156,roubo).
+occurrence(16207,roubo).
+occurrence(16325,assalto_a_grupo).
+occurrence(16327,furto).
+occurrence(16329,roubo).
+occurrence(16474,roubo).
+occurrence(16483,assalto_a_grupo).
+occurrence(16663,roubo).
+occurrence(16700,roubo).
+occurrence(16719,roubo).
+occurrence(16826,furto).
+occurrence(16853,roubo).
+occurrence(16862,furto).
+occurrence(16891,roubo_de_veiculo).
+occurrence(16995,roubo_de_veiculo).
+occurrence(17027,furto).
+occurrence(17034,furto).
+occurrence(17049,roubo).
+occurrence(17056,assalto_a_grupo).
+occurrence(17060,furto).
+occurrence(17065,roubo).
+occurrence(17070,roubo).
+occurrence(17083,roubo_de_veiculo).
+occurrence(17085,roubo).
+occurrence(17086,assalto_a_grupo).
+occurrence(17097,furto).
+occurrence(17110,roubo).
+occurrence(17247,furto).
+occurrence(17261,roubo_de_veiculo).
+occurrence(17276,roubo_de_veiculo).
+occurrence(17283,furto).
+occurrence(17284,roubo).
+occurrence(17285,roubo).
+occurrence(17286,roubo).
+occurrence(17287,roubo).
+occurrence(17288,roubo).
+occurrence(17309,roubo).
+occurrence(17315,furto).
+occurrence(17318,furto).
+occurrence(17323,roubo).
+occurrence(17330,roubo).
+occurrence(17350,roubo_de_veiculo).
+occurrence(17353,roubo).
+occurrence(17354,roubo).
+occurrence(17355,roubo).
+occurrence(17378,arrombamento_veicular).
+occurrence(17386,roubo).
+occurrence(17387,roubo).
+occurrence(17409,furto).
+occurrence(17482,roubo).
+occurrence(17485,roubo).
+occurrence(17490,roubo).
+occurrence(17491,roubo).
+occurrence(17492,roubo).
+occurrence(17505,furto).
+occurrence(17511,roubo).
+occurrence(17520,roubo_de_veiculo).
+occurrence(17524,roubo_de_veiculo).
+occurrence(17525,assalto_a_grupo).
+occurrence(17526,roubo).
+occurrence(17532,roubo).
+occurrence(17549,roubo_de_veiculo).
+occurrence(17570,roubo).
+occurrence(17587,roubo).
+occurrence(17589,roubo).
+occurrence(17590,furto).
+occurrence(17686,roubo).
+occurrence(17709,roubo_de_veiculo).
+occurrence(17749,roubo_de_veiculo).
+occurrence(17771,roubo).
+occurrence(17799,roubo).
+occurrence(17807,roubo).
+occurrence(17855,roubo).
+occurrence(17991,roubo).
+occurrence(18042,roubo).
+occurrence(18070,furto).
+occurrence(18089,roubo).
+occurrence(18100,furto).
+occurrence(18105,roubo).
+occurrence(18106,assalto_a_grupo).
+occurrence(18108,roubo).
+occurrence(18112,assalto_a_grupo).
+occurrence(18116,arrombamento_veicular).
+occurrence(18119,assalto_a_grupo).
+occurrence(18121,roubo).
+occurrence(18123,assalto_a_grupo).
+occurrence(18125,roubo).
+occurrence(18131,roubo_de_veiculo).
+occurrence(18159,furto).
+occurrence(18181,roubo).
+occurrence(18183,roubo).
+occurrence(18187,furto).
+occurrence(18188,roubo).
+occurrence(18197,roubo).
+occurrence(18202,roubo).
+occurrence(18203,furto).
+occurrence(18204,roubo).
+occurrence(18219,furto).
+occurrence(18230,roubo).
+occurrence(18239,roubo_de_veiculo).
+occurrence(18242,assalto_a_grupo).
+occurrence(18247,roubo).
+occurrence(18250,roubo).
+occurrence(18262,roubo_de_veiculo).
+occurrence(18286,roubo_de_veiculo).
+occurrence(18290,roubo).
+occurrence(18307,roubo).
+occurrence(18308,roubo).
+occurrence(18313,roubo).
+occurrence(18318,roubo).
+occurrence(18321,furto).
+occurrence(18328,roubo_de_veiculo).
+occurrence(18353,roubo).
+occurrence(18365,roubo_de_veiculo).
+occurrence(18367,roubo).
+occurrence(18465,roubo).
+occurrence(18487,roubo).
+occurrence(18506,roubo_de_veiculo).
+occurrence(18567,furto).
+occurrence(18640,arrombamento_veicular).
+occurrence(18688,roubo).
+occurrence(18723,roubo).
+occurrence(18726,roubo).
+occurrence(18770,roubo_de_veiculo).
+occurrence(18775,roubo).
+occurrence(18794,roubo).
+occurrence(18883,furto).
+occurrence(18938,roubo).
+occurrence(18946,roubo).
+occurrence(18949,roubo_de_veiculo).
+occurrence(18958,roubo).
+occurrence(19130,roubo).
+occurrence(19211,assalto_a_grupo).
+occurrence(19231,roubo_de_veiculo).
+occurrence(19260,roubo).
+occurrence(19291,assalto_a_grupo).
+occurrence(19312,roubo_de_veiculo).
+occurrence(19340,roubo).
+occurrence(19347,arrombamento_domiciliar).
+occurrence(19518,roubo).
+occurrence(19660,roubo).
+occurrence(19664,roubo_de_veiculo).
+occurrence(19865,roubo).
+occurrence(20980,roubo).
+occurrence(2090,roubo).
+occurrence(2135,furto).
+occurrence(2139,furto).
+occurrence(2185,roubo).
+occurrence(2331,roubo).
+occurrence(2432,furto).
+occurrence(2486,roubo).
+occurrence(2522,furto).
+occurrence(2555,furto).
+occurrence(2666,roubo).
+occurrence(2711,roubo).
+occurrence(2790,assalto_a_grupo).
+occurrence(2813,furto).
+occurrence(21071,roubo).
+occurrence(21317,roubo).
+occurrence(21371,roubo).
+occurrence(21436,furto).
+occurrence(21780,furto).
+occurrence(22087,furto).
+occurrence(22195,roubo).
+occurrence(22256,roubo).
+occurrence(22721,roubo).
+occurrence(23204,furto).
+occurrence(23398,roubo).
+occurrence(23470,roubo).
+occurrence(23696,furto).
+occurrence(23734,roubo).
+occurrence(24110,roubo).
+occurrence(24339,roubo).
+occurrence(24579,roubo).
+occurrence(25061,roubo).
+occurrence(25233,roubo).
+occurrence(25273,arrombamento_domiciliar).
+occurrence(25294,roubo_de_veiculo).
+occurrence(25426,roubo).
+occurrence(25538,assalto_a_grupo).
+occurrence(25777,roubo).
+occurrence(25966,roubo).
+occurrence(26141,assalto_a_grupo).
+occurrence(26143,roubo).
+occurrence(26268,roubo).
+occurrence(26475,roubo).
+occurrence(26480,roubo).
+occurrence(26515,roubo).
+occurrence(26637,roubo).
+occurrence(27132,roubo).
+occurrence(27341,furto).
+occurrence(27382,roubo).
+occurrence(27538,roubo).
+occurrence(27618,roubo).
+occurrence(27627,roubo).
+occurrence(27703,roubo).
+occurrence(27742,roubo).
+occurrence(27818,roubo).
+occurrence(28055,roubo).
+occurrence(28180,roubo).
+occurrence(28194,arrombamento_veicular).
+occurrence(28201,furto).
+occurrence(28293,roubo).
+occurrence(28744,roubo).
+occurrence(28820,roubo).
+occurrence(28890,roubo).
+occurrence(28916,roubo).
+occurrence(29053,roubo).
+occurrence(29061,roubo).
+occurrence(29063,furto).
+occurrence(29148,furto).
+occurrence(29156,furto).
+occurrence(29194,roubo_de_veiculo).
+occurrence(29277,roubo).
+occurrence(29340,furto).
+occurrence(29367,roubo_de_veiculo).
+occurrence(29408,roubo_de_veiculo).
+occurrence(29444,furto).
+occurrence(29588,roubo).
+occurrence(29635,roubo_de_veiculo).
+occurrence(29832,roubo).
+occurrence(29855,roubo_de_veiculo).
+occurrence(29859,roubo_de_veiculo).
+occurrence(29868,furto).
+occurrence(29913,roubo_de_veiculo).
+occurrence(29936,arrombamento_veicular).
+occurrence(29996,roubo).
+occurrence(30029,roubo_de_veiculo).
+occurrence(30093,furto).
+occurrence(30101,roubo).
+occurrence(30136,furto).
+occurrence(30170,roubo).
+occurrence(30178,roubo).
+occurrence(30183,roubo).
+occurrence(30186,roubo_de_veiculo).
+occurrence(30190,roubo).
+occurrence(30209,roubo).
+occurrence(30231,roubo_de_veiculo).
+occurrence(30233,assalto_a_grupo).
+occurrence(30235,roubo).
+occurrence(30253,roubo).
+occurrence(30281,furto).
+occurrence(30415,roubo).
+occurrence(30449,assalto_a_grupo).
+occurrence(30470,furto).
+occurrence(30511,roubo).
+occurrence(30548,assalto_a_grupo).
+occurrence(30610,arrombamento_veicular).
+occurrence(30614,roubo).
+occurrence(30664,assalto_a_grupo).
+occurrence(30668,roubo).
+occurrence(30732,roubo_de_veiculo).
+occurrence(30746,furto).
+occurrence(30779,roubo).
+occurrence(30805,furto).
+occurrence(30822,roubo).
+occurrence(30849,roubo_de_veiculo).
+occurrence(30879,roubo).
+occurrence(30911,roubo_de_veiculo).
+occurrence(3025,roubo).
+occurrence(3158,furto).
+occurrence(3261,roubo).
+occurrence(3331,roubo).
+occurrence(3370,furto).
+occurrence(3385,arrombamento_veicular).
+occurrence(3644,arrombamento_domiciliar).
+occurrence(3657,roubo_de_veiculo).
+occurrence(31095,roubo).
+occurrence(31138,furto).
+occurrence(31306,furto).
+occurrence(31308,roubo).
+occurrence(31500,roubo_de_veiculo).
+occurrence(31521,roubo).
+occurrence(31605,arrombamento_veicular).
+occurrence(31651,roubo_de_veiculo).
+occurrence(31689,roubo).
+occurrence(31735,assalto_a_grupo).
+occurrence(31784,roubo).
+occurrence(31846,furto).
+occurrence(32202,arrombamento_veicular).
+occurrence(32363,roubo).
+occurrence(32434,furto).
+occurrence(32554,roubo_de_veiculo).
+occurrence(32604,roubo).
+occurrence(32631,roubo).
+occurrence(32643,roubo).
+occurrence(32698,roubo_de_veiculo).
+occurrence(32903,roubo).
+occurrence(32904,roubo).
+occurrence(32908,roubo).
+occurrence(33103,furto).
+occurrence(33292,roubo).
+occurrence(33498,roubo_de_veiculo).
+occurrence(33718,roubo).
+occurrence(33735,furto).
+occurrence(33757,roubo).
+occurrence(34005,roubo).
+occurrence(34154,furto).
+occurrence(34169,furto).
+occurrence(34182,roubo).
+occurrence(34204,furto).
+occurrence(34220,roubo).
+occurrence(34257,roubo).
+occurrence(34297,assalto_a_grupo).
+occurrence(34564,roubo).
+occurrence(34591,roubo).
+occurrence(34607,furto).
+occurrence(34669,arrombamento_veicular).
+occurrence(34854,roubo).
+occurrence(35222,roubo).
+occurrence(35244,roubo).
+occurrence(35323,furto).
+occurrence(35324,furto).
+occurrence(35346,roubo_de_veiculo).
+occurrence(35401,roubo).
+occurrence(35498,furto).
+occurrence(35566,roubo_de_veiculo).
+occurrence(35823,roubo).
+occurrence(35845,furto).
+occurrence(35910,roubo).
+occurrence(36028,roubo).
+occurrence(36076,roubo).
+occurrence(36158,roubo_de_veiculo).
+occurrence(36240,furto).
+occurrence(36863,roubo).
+occurrence(36867,arrombamento_domiciliar).
+occurrence(36873,roubo).
+occurrence(36888,roubo).
+occurrence(37070,roubo).
+occurrence(37376,assalto_a_grupo).
+occurrence(37740,roubo_de_veiculo).
+occurrence(37984,furto).
+occurrence(38002,roubo).
+occurrence(38062,roubo).
+occurrence(38357,roubo_de_veiculo).
+occurrence(38406,roubo).
+occurrence(38523,roubo).
+occurrence(38578,roubo_de_veiculo).
+occurrence(38605,roubo_de_veiculo).
+occurrence(38609,roubo).
+occurrence(38671,roubo).
+occurrence(38859,roubo).
+occurrence(39407,roubo).
+occurrence(39691,furto).
+occurrence(39736,roubo).
+occurrence(39740,roubo).
+occurrence(39741,roubo).
+occurrence(39841,roubo).
+occurrence(39948,furto).
+occurrence(40038,roubo).
+occurrence(40133,roubo).
+occurrence(40217,furto).
+occurrence(40491,furto).
+occurrence(40513,roubo_de_veiculo).
+occurrence(40615,roubo).
+occurrence(40708,roubo_de_veiculo).
+occurrence(40826,roubo).
+occurrence(40883,assalto_a_grupo).
+occurrence(4567,roubo).
+occurrence(4641,roubo).
+occurrence(4995,furto).
+occurrence(41027,roubo).
+occurrence(41032,furto).
+occurrence(41121,roubo).
+occurrence(41210,furto).
+occurrence(41233,furto).
+occurrence(41469,roubo).
+occurrence(41575,furto).
+occurrence(41639,furto).
+occurrence(41757,roubo).
+occurrence(41780,furto).
+occurrence(41787,roubo).
+occurrence(41846,roubo).
+occurrence(41872,roubo).
+occurrence(41873,roubo).
+occurrence(41992,roubo).
+occurrence(42019,roubo).
+occurrence(42135,arrombamento_veicular).
+occurrence(42137,furto).
+occurrence(42140,roubo).
+occurrence(42604,furto).
+occurrence(42749,roubo).
+occurrence(43051,roubo).
+occurrence(43054,roubo).
+occurrence(43074,roubo).
+occurrence(43108,roubo).
+occurrence(43120,roubo).
+occurrence(43121,roubo).
+occurrence(43389,roubo).
+occurrence(43393,furto).
+occurrence(43397,furto).
+occurrence(43602,roubo).
+occurrence(43862,roubo).
+occurrence(43913,roubo).
+occurrence(43918,roubo).
+occurrence(43990,roubo).
+occurrence(43993,roubo).
+occurrence(43996,roubo).
+occurrence(44000,roubo).
+occurrence(44004,roubo).
+occurrence(44033,roubo).
+occurrence(44034,roubo).
+occurrence(44037,roubo).
+occurrence(44040,roubo).
+occurrence(44132,roubo).
+occurrence(44144,roubo).
+occurrence(44152,assalto_a_grupo).
+occurrence(44165,roubo).
+occurrence(44166,roubo).
+occurrence(44168,roubo).
+occurrence(44188,furto).
+occurrence(44189,roubo).
+occurrence(44308,furto).
+occurrence(44314,roubo).
+occurrence(44319,roubo).
+occurrence(44320,roubo).
+occurrence(44327,roubo).
+occurrence(44328,roubo).
+occurrence(44503,roubo_de_veiculo).
+occurrence(44504,roubo_de_veiculo).
+occurrence(44534,furto).
+occurrence(44679,furto).
+occurrence(44705,roubo).
+occurrence(44783,roubo).
+occurrence(44910,furto).
+occurrence(44967,roubo).
+occurrence(44990,roubo).
+occurrence(45107,roubo).
+occurrence(45141,roubo).
+occurrence(45327,roubo).
+occurrence(45417,roubo).
+occurrence(45667,roubo).
+occurrence(45671,furto).
+occurrence(45788,roubo_de_veiculo).
+occurrence(45991,roubo).
+occurrence(46176,arrombamento_domiciliar).
+occurrence(46177,roubo).
+occurrence(46204,roubo).
+occurrence(46215,arrombamento_domiciliar).
+occurrence(46229,roubo).
+occurrence(46246,roubo).
+occurrence(46253,furto).
+occurrence(46276,roubo).
+occurrence(46279,roubo).
+occurrence(46290,sequestro_relampago).
+occurrence(46351,arrombamento_domiciliar).
+occurrence(46379,roubo).
+occurrence(46383,arrombamento_domiciliar).
+occurrence(46395,assalto_a_grupo).
+occurrence(46424,roubo).
+occurrence(46425,roubo).
+occurrence(46429,furto).
+occurrence(46484,furto).
+occurrence(46540,roubo).
+occurrence(46566,roubo).
+occurrence(46761,furto).
+occurrence(46783,assalto_a_grupo).
+occurrence(46858,furto).
+occurrence(46860,furto).
+occurrence(46906,roubo).
+occurrence(46912,arrombamento_domiciliar).
+occurrence(47075,roubo).
+occurrence(47076,roubo).
+occurrence(47250,roubo).
+occurrence(47259,roubo_de_veiculo).
+occurrence(47387,roubo).
+occurrence(47691,furto).
+occurrence(47926,roubo).
+occurrence(47968,roubo_de_veiculo).
+occurrence(47971,roubo_de_veiculo).
+occurrence(47980,roubo).
+occurrence(48011,roubo).
+occurrence(48145,roubo_de_veiculo).
+occurrence(48154,roubo).
+occurrence(48157,roubo).
+occurrence(48218,roubo).
+occurrence(48238,roubo).
+occurrence(48266,roubo).
+occurrence(48275,furto).
+occurrence(48314,roubo).
+occurrence(48356,roubo_de_veiculo).
+occurrence(48367,roubo_de_veiculo).
+occurrence(48368,sequestro_relampago).
+occurrence(48398,arrastão).
+occurrence(48413,roubo).
+occurrence(48445,roubo).
+occurrence(48514,assalto_a_grupo).
+occurrence(48515,roubo).
+occurrence(48562,tentativa_de_assalto).
+occurrence(48591,roubo).
+occurrence(48651,roubo).
+occurrence(48665,roubo_de_veiculo).
+occurrence(48701,tentativa_de_assalto).
+occurrence(48751,roubo).
+occurrence(48890,furto).
+occurrence(48948,roubo_de_veiculo).
+occurrence(48954,roubo).
+occurrence(6160,furto).
+occurrence(6250,roubo).
+occurrence(6392,roubo).
+occurrence(6833,furto).
+occurrence(7004,furto).
+occurrence(7176,roubo).
+occurrence(7181,roubo).
+occurrence(7228,roubo).
+occurrence(7351,roubo).
+occurrence(7374,furto).
+occurrence(7479,furto).
+occurrence(7516,arrombamento_veicular).
+occurrence(7647,roubo_de_veiculo).
+occurrence(7759,roubo).
+occurrence(7823,roubo).
+occurrence(8027,arrombamento_veicular).
+occurrence(8077,sequestro_relampago).
+occurrence(8111,roubo).
+occurrence(8136,roubo).
+occurrence(8151,roubo).
+occurrence(8285,roubo).
+occurrence(8509,roubo).
+occurrence(8514,assalto_a_grupo).
+occurrence(8516,furto).
+occurrence(8518,furto).
+occurrence(8524,furto).
+occurrence(8533,roubo).
+occurrence(8536,roubo_de_veiculo).
+occurrence(8538,roubo).
+occurrence(8542,roubo).
+occurrence(8549,arrombamento_veicular).
+occurrence(8552,furto).
+occurrence(8556,furto).
+occurrence(8562,roubo).
+occurrence(8565,furto).
+occurrence(8580,roubo).
+occurrence(8584,roubo_de_veiculo).
+occurrence(8585,arrombamento_veicular).
+occurrence(8588,roubo).
+occurrence(8591,roubo).
+occurrence(8593,roubo).
+occurrence(8599,roubo).
+occurrence(8600,assalto_a_grupo).
+occurrence(8610,arrombamento_veicular).
+occurrence(8612,furto).
+occurrence(8621,roubo).
+occurrence(8629,furto).
+occurrence(8635,roubo).
+occurrence(8637,furto).
+occurrence(8638,roubo).
+occurrence(8644,furto).
+occurrence(8647,furto).
+occurrence(8649,roubo).
+occurrence(8651,roubo).
+occurrence(8658,roubo).
+occurrence(8686,roubo_de_veiculo).
+occurrence(8699,roubo).
+occurrence(8717,roubo).
+occurrence(8723,furto).
+occurrence(8781,roubo).
+occurrence(8791,roubo).
+occurrence(8808,furto).
+occurrence(8959,roubo).
+occurrence(9033,roubo).
+occurrence(9088,roubo).
+occurrence(9115,roubo).
+occurrence(9133,furto).
+occurrence(9214,roubo).
+occurrence(9216,roubo_de_veiculo).
+occurrence(9256,roubo).
+occurrence(9300,roubo).
+occurrence(9318,roubo).
+occurrence(9320,assalto_a_grupo).
+occurrence(9327,roubo).
+occurrence(9328,roubo).
+occurrence(9386,roubo).
+occurrence(9391,roubo).
+occurrence(9393,roubo).
+occurrence(9394,furto).
+occurrence(9404,roubo).
+occurrence(9405,roubo).
+occurrence(9406,roubo).
+occurrence(9413,roubo).
+occurrence(9440,arrombamento_domiciliar).
+occurrence(9445,furto).
+occurrence(9476,roubo).
+occurrence(9485,roubo).
+occurrence(9498,roubo).
+occurrence(9506,roubo).
+occurrence(9527,roubo).
+occurrence(9531,roubo).
+occurrence(9550,arrombamento_domiciliar).
+occurrence(9554,roubo).
+occurrence(9595,roubo).
+occurrence(9596,roubo).
+occurrence(9604,roubo).
+occurrence(9637,roubo).
+occurrence(9649,roubo).
+occurrence(9659,roubo).
+occurrence(9669,roubo).
+occurrence(9671,roubo).
+occurrence(9677,roubo).
+occurrence(9690,roubo).
+occurrence(9771,roubo).
+occurrence(9804,furto).
+occurrence(9820,furto).
+occurrence(9890,roubo_de_veiculo).
+occurrence(10000,furto).
