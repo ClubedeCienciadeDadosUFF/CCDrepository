@@ -101,3 +101,24 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
           "arg.b", append = TRUE, sep = "\n")
   }
 }
+
+build_negative <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
+  dataset <- read.csv(FILE_NAME)
+  crime_list <- c("roubo","furto","assalto_relampago", "roubo_de_veiculo","assalto_a_grupo",
+                  "arrombamento_veicular","arrombamento_domiciliar","sequestro_relampago")
+  for(i in 1:length(dataset$n_occurrence)) {
+    crime <- normalize(substr(dataset$occurrence_type[i],
+                              1, nchar(as.vector(dataset$occurrence_type[i]))-1))
+    for(nc in crime_list) {
+      if(nc != crime) {
+        #.n
+        write(paste("occurrence(",
+                    dataset$n_occurrence[i],
+                    ",",
+                    nc,
+                    ").", sep = ""),
+              "a.n", append = TRUE, sep = "\n")
+      }
+    }
+  }
+}
