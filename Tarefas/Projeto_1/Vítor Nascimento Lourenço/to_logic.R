@@ -1,6 +1,6 @@
 normalize <- function(input) {
-  subf <- c(" ", "á", "é", "í", "ó", "ú", "â", "ê", "ô")
-  subt <- c("_", "a", "e", "i", "o", "u", "a", "e", "o")
+  subf <- c(" ", "á", "é", "í", "ó", "ú", "â", "ê", "ô", "'", "ç", "ã")
+  subt <- c("_", "a", "e", "i", "o", "u", "a", "e", "o", "_", "c", "a")
   input <- tolower(input)
   for (i in 1:length(subf)) {
     input <- gsub(subf[i], subt[i], input)
@@ -25,7 +25,7 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
       write(paste("occurrence(",
                   dataset$n_occurrence[i],
                   ",",
-                  normilize(substr(dataset$occurrence_type[i],
+                  normalize(substr(dataset$occurrence_type[i],
                                    1, nchar(as.vector(dataset$occurrence_type[i]))-1)),
                   ").", sep = ""),
             "prep.f", append = TRUE, sep = "\n")
@@ -89,14 +89,14 @@ to_logic <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
     write(paste("nearby_location(",
                 last_occ,
                 ",",
-                normilize(dataset$nearby_location[i]),
+                normalize(dataset$nearby_location[i]),
                 ").", sep = ""),
           "arg.b", append = TRUE, sep = "\n")
     #in
     write(paste("in(",
-                normilize(dataset$nearby_location[i]),
+                normalize(dataset$nearby_location[i]),
                 ",",
-                normilize(last_sub),
+                normalize(last_sub),
                 ").", sep = ""),
           "arg.b", append = TRUE, sep = "\n")
   }
