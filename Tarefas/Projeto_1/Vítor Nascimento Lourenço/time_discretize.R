@@ -7,7 +7,7 @@
 # This script has the objective to discretize date and time
 #
 
-time_discretize <- function(dataset_path = "nearby_location.csv") {
+time_discretize <- function(dataset_path = "nearby_location.csv", out = "time_discretize_nit.csv") {
   
   nearby_location_db <- read.csv(dataset_path)
   new_db <- data.frame()
@@ -47,5 +47,5 @@ time_discretize <- function(dataset_path = "nearby_location.csv") {
   #drop_col <- c("","X","X.1") #drop some random column
   #new_db <- new_db[,!(names(new_db) %in% drop_col)]
   #print(paste("All the ", i, " are completed"))
-  write.csv(new_db, paste("time_discretize_nit",".csv", sep = ""))
+  write.csv(new_db, out)
 }
