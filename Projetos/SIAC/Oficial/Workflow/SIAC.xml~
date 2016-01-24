@@ -8,7 +8,7 @@
 			<relation reltype="Input" name=""/>
 			<relation reltype="Output" name="odataselection"/>			
 		</activity>
-		<activity tag="mafft" template="%=WFDIR%/scripts" description="align with mafft">
+		<activity tag="mafft" type="MAP" template="%=WFDIR%/scripts" description="align with mafft">
 			<relation reltype="Input" dependency="dataselection"/>
 			<relation reltype="Output" name="omafft"/>
 			<extractor name="dlmafft" type="LOADING" cartridge="EXTERNAL_PROGRAM" invocation="./extractor.cmd"/>

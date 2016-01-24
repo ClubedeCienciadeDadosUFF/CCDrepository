@@ -1,6 +1,6 @@
 #
-# Clube de Ciência de Dados - UFF (CCD-UFF)
-# Author: Vítor Lourenço
+# Clube de Ci?ncia de Dados - UFF (CCD-UFF)
+# Author: V?tor Louren?o
 #
 # Last modified: 2015/10/01
 #
@@ -9,7 +9,7 @@
 
 nearby_location <- function(position_radious = 1,
                                 occurrences_path = "Niteroi_occurrences.csv",
-                                locations_path   = "geo_places.csv") {
+                                locations_path   = "geo_places_suburb.csv") {
   
   haversine <- function(lat1, long1, lat2, long2) {
     KILOMETER_FACTOR = 6373  
@@ -31,6 +31,7 @@ nearby_location <- function(position_radious = 1,
                    loc_db[j,]$latitude, loc_db[j,]$longitude) <= position_radious/10000) {
         location_list <- occ_db[i,]
         location_list <- cbind(location_list, nearby_location = loc_db[j,]$type)
+        location_list <- cbind(location_list, nearby_location = loc_db[j,]$suburb)
         new_db <- rbind(new_db, location_list)
       }
     }

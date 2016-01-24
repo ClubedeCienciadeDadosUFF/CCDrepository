@@ -1,4 +1,4 @@
-get_suburb <- function(FILE_NAME = "geo_places.csv") {
+get_suburb <- function(FILE_NAME = "Niteroi_occurrences.csv") {
   library(rjson)
   DEFAULT_URL <- 'http://nominatim.openstreetmap.org/reverse?format=json&lat=<<LAT>>&lon=<<LON>>&zoom=18&addressdetails=1'
   result_data <- data.frame(stringsAsFactors=FALSE)

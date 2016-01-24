@@ -8,5 +8,5 @@ get_suburb.R: ?
 nearby_location.R: pega as localidades próximas das ocorrencias: nearby_location.csv
 CCD.rar: pegas as posições próximas : geo_places.csv
 
-execução: extract/CCD.rar > city_occurrences > get_suburb > nearby_location > time_dizcretize
+execução: extract/CCD.rar > city_occurrences > get_suburb > nearby_location > get_suburb > time_dizcretize
 ondefuiroubado_occurrences.csv/geo_places.csv > Niteroi_occurrences.csv > Niteroi_occurrences_suburb.R > nearby_location.csv
