@@ -7,7 +7,7 @@
 # This script has the objective to discretize date and time
 #
 
-get_nearby_location <- function(position_radious = 1,
+nearby_location <- function(position_radious = 1,
                                 occurrences_path = "Niteroi_occurrences.csv",
                                 locations_path   = "geo_places.csv") {
   

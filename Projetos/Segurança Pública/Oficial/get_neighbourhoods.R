@@ -35,12 +35,11 @@ get_neighbourhoods <- function(FILE_NAME = "nearby_location.csv")
     lon <- new_lon
     URL <- gsub('<<LAT>>', lat, DEFAULT_URL)
     URL <- gsub('<<LON>>', lon, URL)
-    print(URL)
+    #print(URL)
     result <- fromJSON(readLines(URL)[1])
     suburb <- as.character(result$address$suburb)
     for(i in seq_along(unwanted_array))
       suburb <- gsub(names(unwanted_array)[i],unwanted_array[i],suburb)
-    result_data <- rbind(result_data, data.frame(suburb))
   }
   colnames(result_data) <- 'suburb'
   data <- cbind(data, result_data)
