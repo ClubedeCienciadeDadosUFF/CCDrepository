@@ -11,7 +11,8 @@ extract_data <- function(first_element = 1,
                          last_element  = "ALL", 
                          repair        = FALSE, 
                          update        = FALSE, 
-                         sample        = 1000) {
+                         sample        = 1000,
+                         output        = "ondefuiroubado_occurrences") {
     
     
     #
@@ -234,8 +235,8 @@ extract_data <- function(first_element = 1,
             time <- gsub(":", "-", Sys.time())
             setwd(paste(DEFAULT_PATH, "/", OCCURRENCES_PATH, sep = ""))
             write.csv(dataset, 
-                      paste("ondefuiroubado_occurrences ", start_index, 
-                            " - ", n, ". TimeStamp ", time ,".csv", sep = ""))
+                      paste(output, start_index, 
+                            "-", n, ".TimeStamp", time ,".csv", sep = ""))
             
             setwd(paste(DEFAULT_PATH, "/", OCCURRENCES_LOG_PATH, sep = ""))
             write.table(dataset_log, 
@@ -254,3 +255,6 @@ extract_data <- function(first_element = 1,
     # Set the working directory to original one
     setwd(DEFAULT_PATH)
 }
+args <- commandArgs(trailingOnly = TRUE)
+extract_data(first_element = 1, last_element = "ALL", repair = FALSE, 
+             update = FALSE, sample = 1000, output = args[1])
