@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/map.css">
+	<script type="text/javascript" src="js/leafletembed.js"></script>
+	<script src="js/data.js"></script>
+	<link href="css/simple-sidebar.css" rel="stylesheet">
+	<link href="css/button.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+	<script src="js/leaflet.awesome-markers.js"></script>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <title> SIAC </title>
+  </head>
+  <body>
+  	
+  	<div id="wrapper">      
+
+  		<!-- /#sidebar-wrapper -->
+  		<div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        SIAC
+                    </a>
+                </li>
+                <li>
+                    <!--<a id="importData" href="#">Importar dados</a> -->
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- map-wrapper -->
+	    <div id="map-wrapper">
+	      <div id="map" class="leaf-container"> </div>
+	    </div>
+	    <!-- /#map-wrapper -->
+
+	</div>
+
+    <script>
+
+    /*Markers type */
+    var rouboMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'red'
+  	});
+  	var furtoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'blue'
+  	});
+  	var rouboDeVeiculoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'green'
+  	});
+  	var assaltoAGrupoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'black'
+  	});
+  	var tentativaDeAssaltoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'orange'
+  	});
+  	var sequestroRelampagoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'purple'
+  	});
+  	var arrombamentoVeicularMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'cadetblue'
+  	});
+  	var arrombamentoDomiciliarMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'darkred'
+  	});
+  	var arrastaoMarker = L.AwesomeMarkers.icon({
+    icon: 'user',
+    prefix: 'fa',
+    markerColor: 'darkgreen'
+  	});
+
+  	/* variables */
+  	var p_data;
+  	var markers = [];
+  	var notifications = [];
+  	var notification = null
+
+	$(document).ready(function()
+	{
+		initmap();
+		p_data = JSON.parse(data);
+		plotData(p_data);
+	});
+
+	function plotData(p_data)
+	{
+		for (var i = 0; i < p_data.length; i++) 
+		{
+			var marker = insertMarker(p_data[i]);
+			insertPopUp(marker, p_data[i]);
+		};
+	}
+	function insertMarker(rowData)
+	{
+		var marker = null;
+		if(rowData.occurrence_type.toLowerCase().localeCompare("roubo") == 0)
+				marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("furto") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: furtoMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("roubo_de_veiculo") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboDeVeiculoMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("assalto_a_grupo") == 0) // This one represents the notification
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: assaltoAGrupoMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrastao") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrastaoMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrombamento_domiciliar") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoDomiciliarMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrombamento_veicular") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoVeicularMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("tentativa_de_assalto") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: tentativaDeAssaltoMarker}).addTo(map);
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("sequestro_relampago") == 0)
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: sequestroRelampagoMarker}).addTo(map);
+
+		return marker;
+	}
+	function insertPopUp(marker, rowData)
+	{
+		if(marker != null)
+		{
+			var occurrence_type = rowData.occurrence_type.toLowerCase();
+			var normalizedString = occurrence_type.split('_').join(' ');
+			normalizedString = firstToUpperCase(normalizedString);
+			var objects = "";
+			$.each(rowData, function(k, v) 
+			{
+				value = v.toString();
+				value = value.toLowerCase();
+			    if(value.localeCompare("true") == 0)
+			    	objects +=  firstToUpperCase(k.split('_').join(' ')) + ", ";
+			});
+			objects = objects.replace(/,\s*$/, "");
+			marker.bindPopup("<b>" + normalizedString + "</b>" + "<br><b>" + "Objetos roubados : " + "</b>" + objects + "." + "<br><b>" + "Hora : " + "</b>" + rowData.time);
+			markers.push(marker);
+		}
+	}
+	function firstToUpperCase( str ) 
+	{
+    	return str.substr(0, 1).toUpperCase() + str.substr(1);
+	}
+    $('#importData').click(function()
+	{
+
+    });
+    </script>
+  </body>
+<html>
+
