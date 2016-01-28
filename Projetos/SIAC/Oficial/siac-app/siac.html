@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<meta charset="UTF-8">
   	<link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -14,6 +15,7 @@
 	<script src="js/leaflet.awesome-markers.js"></script>
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
     <title> SIAC </title>
   </head>
   <body>
@@ -29,7 +31,15 @@
                     </a>
                 </li>
                 <li>
+				    <a href="#" onclick="onClickOcorrencias()">
+				    	Marcar Ocorrências
+				    </a>
                     <!--<a id="importData" href="#">Importar dados</a> -->
+                </li>
+                <li>
+                	<a href="#" onclick="onClickInducoes()">
+                		Marcar Induções
+                	</a>
                 </li>
             </ul>
         </div>
@@ -93,48 +103,54 @@
   	});
 
   	/* variables */
-  	var p_data;
-  	var markers = [];
-  	var notifications = [];
-  	var notification = null
+  	var occurrencesData;
+  	var occurrences = [];
+  	var occurrencesGroupLayer = null;
+
+  	var inductionsData;
+  	var inductions = [];
+  	var inductionsGroupLayer = null;
+
 
 	$(document).ready(function()
 	{
 		initmap();
-		p_data = JSON.parse(data);
-		plotData(p_data);
+		occurrencesData = JSON.parse(rawOccurrencesData);
+		prepareOccurrencesData(occurrencesData);
+		inductionsData = JSON.parse(rawInductionsData)
+		prepareInductionsData(inductionsData);
 	});
 
-	function plotData(p_data)
+	function prepareOccurrencesData(occurrencesData)
 	{
-		for (var i = 0; i < p_data.length; i++) 
+		for (var i = 0; i < occurrencesData.length; i++) 
 		{
-			var marker = insertMarker(p_data[i]);
-			insertPopUp(marker, p_data[i]);
+			var marker = insertMarker(occurrencesData[i]);
+			insertPopUp(marker, occurrencesData[i]);
 		};
+		occurrencesGroupLayer = L.layerGroup(occurrences);
 	}
 	function insertMarker(rowData)
 	{
 		var marker = null;
 		if(rowData.occurrence_type.toLowerCase().localeCompare("roubo") == 0)
-				marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboMarker}).addTo(map);
+				marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("furto") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: furtoMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: furtoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("roubo_de_veiculo") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboDeVeiculoMarker}).addTo(map);
-		else if(rowData.occurrence_type.toLowerCase().localeCompare("assalto_a_grupo") == 0) // This one represents the notification
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: assaltoAGrupoMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboDeVeiculoMarker});
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("assalto_a_grupo") == 0) 
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: assaltoAGrupoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrastao") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrastaoMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrastaoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrombamento_domiciliar") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoDomiciliarMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoDomiciliarMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrombamento_veicular") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoVeicularMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrombamentoVeicularMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("tentativa_de_assalto") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: tentativaDeAssaltoMarker}).addTo(map);
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: tentativaDeAssaltoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("sequestro_relampago") == 0)
-			marker = L.marker([rowData.latitude, rowData.longitude], {icon: sequestroRelampagoMarker}).addTo(map);
-
+			marker = L.marker([rowData.latitude, rowData.longitude], {icon: sequestroRelampagoMarker});
 		return marker;
 	}
 	function insertPopUp(marker, rowData)
@@ -154,17 +170,30 @@
 			});
 			objects = objects.replace(/,\s*$/, "");
 			marker.bindPopup("<b>" + normalizedString + "</b>" + "<br><b>" + "Objetos roubados : " + "</b>" + objects + "." + "<br><b>" + "Hora : " + "</b>" + rowData.time);
-			markers.push(marker);
+			occurrences.push(marker);
 		}
 	}
 	function firstToUpperCase( str ) 
 	{
     	return str.substr(0, 1).toUpperCase() + str.substr(1);
 	}
-    $('#importData').click(function()
+	function prepareInductionsData(inductionsData)
 	{
-
-    });
+		console.log(inductionsData.rules)
+	}
+	function onClickInducoes()
+    {
+    	map.removeLayer(occurrencesGroupLayer);
+    	alert('Ainda não implementado')
+    }
+	function onClickOcorrencias()
+    {
+    	plotData();
+    }
+	function plotData()
+	{
+		occurrencesGroupLayer.addTo(map);
+	}
     </script>
   </body>
 <html>
