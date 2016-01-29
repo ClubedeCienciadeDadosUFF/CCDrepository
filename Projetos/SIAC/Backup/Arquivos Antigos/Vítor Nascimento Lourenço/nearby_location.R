@@ -1,6 +1,6 @@
 #
-# Clube de Ciência de Dados - UFF (CCD-UFF)
-# Author: Vítor Lourenço
+# Clube de Ci?ncia de Dados - UFF (CCD-UFF)
+# Author: V?tor Louren?o
 #
 # Last modified: 2015/10/01
 #
@@ -19,6 +19,7 @@ get_nearby_location <- function(position_radious = 1,
     theta1 <- long1 * degrees_to_radians
     theta2 <- long2 * degrees_to_radians
     
+    #
     return(acos((sin(phi1) * sin(phi2) * cos(theta1 - theta2) + cos(phi1) * cos(phi2))))
   }
   

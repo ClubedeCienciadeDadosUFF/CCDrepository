@@ -13,14 +13,14 @@
 			<relation reltype="Input" name="Niteroi,extract.csv"/>
 			<relation reltype="Output" name="city.csv"/>
         </activity-->
-        <activity tag="suburb" script="scripts/suburb.R" description="discretize occurrence's suburb">
+        <!--activity tag="suburb" script="scripts/suburb.R" description="discretize occurrence's suburb">
             <relation reltype="Input" name="city.csv"/>
            	<relation reltype="Output" name="city_suburb.csv"/>
-        </activity>
-		<activity tag="nearby_location" script="scripts/nearby_location.R" description="add near locations">
+        </activity-->
+	<!--activity tag="nearby_location" script="scripts/nearby_location.R" description="add near locations">
             <relation reltype="Input" name="city_suburb.csv,geo_places.csv"/>
            	<relation reltype="Output" name="city_nearby.csv"/>
-        </activity>
+        </activity-->
 		<activity tag="discretize" script="scripts/dt_discretize.R" description="discretize occurrence's date and time">
             <relation reltype="Input" name="city_nearby.csv"/>
            	<relation reltype="Output" name="dataset.csv"/>
