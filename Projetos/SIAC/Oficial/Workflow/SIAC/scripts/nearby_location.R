@@ -17,7 +17,7 @@
 #
 
 nearby_location <- function(distance = 0.5, #distance in km
-                            occurrences_path = "Niteroi_occurrences.csv",
+                            occurrences_path = "city.csv",
                             locations_path   = "geo_places.csv",
                             output           = "nearby_location.csv") {
   

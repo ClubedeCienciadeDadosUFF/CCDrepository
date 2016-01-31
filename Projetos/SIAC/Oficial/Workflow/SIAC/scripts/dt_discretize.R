@@ -42,6 +42,7 @@ time_discretize <- function(dataset_path = "nearby_location.csv", out = "time_di
       new_line <- cbind(new_line, time = "night")
     }
     new_line <- cbind(new_line, nearby_location = nearby_location_db[i,]$nearby_location)
+    new_line <- cbind(new_line, suburb = nearby_location_db[i,]$suburb)
     new_db <- rbind(new_db, new_line)
   }
   drop_col <- c("","X","X.1","X.2") #drop some random column
