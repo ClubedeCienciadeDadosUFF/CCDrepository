@@ -38,13 +38,19 @@ nearby_location <- function(distance = 0.5, #distance in km
   loc_db <- read.csv(locations_path)
   new_db <- data.frame()
   for (i in 1:length(occ_db$latitude)) {
+    no_nearby = T #in case don't have nearby
     for (j in 1:length(loc_db$latitude)) {
+      location_list <- occ_db[i,]
       if(haversine(occ_db[i,]$latitude, occ_db[i,]$longitude,
                    loc_db[j,]$latitude, loc_db[j,]$longitude) <= distance) {
-        location_list <- occ_db[i,]
+        no_nearby = F
         location_list <- cbind(location_list, nearby_location = loc_db[j,]$type)
         new_db <- rbind(new_db, location_list)
       }
+    }
+    if(no_nearby) {
+      location_list <- cbind(location_list, nearby_location = "") 
+      new_db <- rbind(new_db, location_list)
     }
   }
   write.csv(new_db, output)
