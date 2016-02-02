@@ -1,0 +1,111 @@
+occurrence(A,assalto_a_grupo) :- geo_position(A,centro), weekend(A), morning(A).
+occurrence(A,roubo) :- business_day(A), object(A,bolsa_ou_mochila), object(A,tablet).
+occurrence(A,arrombamento_veicular) :- object(A,estepe).
+occurrence(A,arrombamento_veicular) :- object(A,equipamento_de_som).
+occurrence(A,roubo) :- geo_position(A,muriqui), object(A,celular).
+occurrence(A,roubo) :- business_day(A), object(A,carteira), object(A,tablet).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), evening(A).
+occurrence(A,roubo) :- morning(A), object(A,notebook), nearby_location(A,policia_civil).
+occurrence(A,roubo) :- geo_position(A,boa_viagem), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,boa_viagem), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), morning(A).
+occurrence(A,roubo) :- geo_position(A,inga), weekend(A), night(A).
+occurrence(A,furto) :- geo_position(A,icarai), weekend(A), object(A,bicicleta).
+occurrence(A,roubo) :- geo_position(A,icarai), business_day(A), object(A,notebook).
+occurrence(A,roubo) :- geo_position(A,vital_brazil), object(A,celular), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), morning(A).
+occurrence(A,roubo) :- geo_position(A,icarai), morning(A), object(A,relogio).
+occurrence(A,furto) :- geo_position(A,inga), object(A,bicicleta).
+occurrence(A,roubo) :- weekend(A), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,santa_rosa), night(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,pe_pequeno), evening(A), object(A,carteira).
+occurrence(A,roubo) :- geo_position(A,itacoatiara), business_day(A), nearby_location(A,banco).
+occurrence(A,roubo) :- geo_position(A,engenhoca), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,matapaca), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), night(A), object(A,mp4_ou_ipod).
+occurrence(A,roubo_de_veiculo) :- geo_position(A,sao_francisco), dawn(A), object(A,mp4_ou_ipod).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), weekend(A), dawn(A).
+occurrence(A,roubo_de_veiculo) :- geo_position(A,pendotiba), night(A), nearby_location(A,restaurante).
+occurrence(A,roubo) :- geo_position(A,jacare), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), evening(A), object(A,documentos).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), weekend(A), object(A,documentos).
+occurrence(A,roubo) :- geo_position(A,vila_progresso), object(A,bolsa_ou_mochila), object(A,cartao_de_credito).
+occurrence(A,roubo) :- geo_position(A,cachoeira), nearby_location(A,clinica).
+occurrence(A,roubo) :- morning(A), object(A,cartao_de_credito), object(A,outros).
+occurrence(A,roubo) :- geo_position(A,sape), nearby_location(A,banco).
+occurrence(A,roubo) :- geo_position(A,maceio), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,santa_rosa), evening(A).
+occurrence(A,furto) :- geo_position(A,pe_pequeno), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,furto) :- geo_position(A,gragoata), dawn(A), object(A,celular).
+occurrence(A,roubo) :- object(A,bolsa_ou_mochila), object(A,notebook), object(A,tablet).
+occurrence(A,furto) :- geo_position(A,centro), object(A,bicicleta).
+occurrence(A,arrombamento_domiciliar) :- object(A,moveis).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), object(A,celular), object(A,tablet).
+occurrence(A,roubo) :- geo_position(A,fonseca), morning(A).
+occurrence(A,roubo) :- geo_position(A,fonseca), nearby_location(A,quiosque).
+occurrence(A,arrombamento_veicular) :- evening(A), object(A,estepe).
+occurrence(A,roubo) :- morning(A), object(A,celular), object(A,notebook).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), evening(A), object(A,documentos).
+occurrence(A,roubo) :- geo_position(A,matapaca), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,jacare), business_day(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,icarai), morning(A), object(A,carteira).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- evening(A), object(A,bolsa_ou_mochila), object(A,tablet).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), object(A,carteira), object(A,mp4_ou_ipod).
+occurrence(A,roubo) :- geo_position(A,vital_brazil), object(A,celular), object(A,relogio).
+occurrence(A,assalto_a_grupo) :- geo_position(A,centro), weekend(A), morning(A).
+occurrence(A,roubo) :- object(A,tablet), object(A,cartao_de_credito), nearby_location(A,quiosque).
+occurrence(A,arrombamento_veicular) :- evening(A), object(A,estepe).
+occurrence(A,roubo) :- geo_position(A,barreto), object(A,bolsa_ou_mochila), object(A,outros).
+occurrence(A,roubo) :- geo_position(A,cachoeira), object(A,relogio).
+occurrence(A,roubo_de_veiculo) :- geo_position(A,engenho_do_mato), weekend(A), object(A,outros).
+occurrence(A,roubo) :- geo_position(A,muriqui), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), evening(A).
+occurrence(A,roubo) :- morning(A), object(A,notebook), nearby_location(A,policia_civil).
+occurrence(A,roubo) :- geo_position(A,pe_pequeno), dawn(A), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,fonseca), object(A,carteira), nearby_location(A,universidade).
+occurrence(A,roubo) :- geo_position(A,boa_viagem), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,boa_viagem), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), morning(A), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,piratininga), object(A,celular).
+occurrence(A,furto) :- geo_position(A,icarai), weekend(A), object(A,bicicleta).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), morning(A).
+occurrence(A,roubo) :- geo_position(A,icarai), morning(A), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,icarai), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,pe_pequeno), evening(A), object(A,carteira).
+occurrence(A,roubo) :- geo_position(A,itacoatiara), business_day(A), nearby_location(A,banco).
+occurrence(A,roubo) :- geo_position(A,engenhoca), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), evening(A), object(A,documentos).
+occurrence(A,roubo) :- geo_position(A,matapaca), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), object(A,carteira), object(A,mp4_ou_ipod).
+occurrence(A,roubo_de_veiculo) :- geo_position(A,sao_francisco), dawn(A), object(A,mp4_ou_ipod).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), weekend(A), dawn(A).
+occurrence(A,roubo) :- geo_position(A,santa_barbara), evening(A).
+occurrence(A,roubo) :- geo_position(A,jacare), business_day(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,icarai), morning(A), object(A,carteira).
+occurrence(A,roubo) :- geo_position(A,sao_lourenco), weekend(A), object(A,documentos).
+occurrence(A,roubo) :- geo_position(A,vital_brazil), morning(A), object(A,carteira).
+occurrence(A,roubo) :- geo_position(A,vila_progresso), weekend(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,santa_rosa), morning(A), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,fonseca), morning(A).
+occurrence(A,roubo) :- geo_position(A,pendotiba), object(A,bolsa_ou_mochila), object(A,outros).
+occurrence(A,roubo) :- geo_position(A,vital_brazil), evening(A), object(A,outros).
+occurrence(A,roubo) :- geo_position(A,engenho_do_mato), object(A,relogio).
+occurrence(A,roubo) :- geo_position(A,camboinhas), night(A).
+occurrence(A,roubo) :- geo_position(A,sape), nearby_location(A,banco).
+occurrence(A,roubo) :- geo_position(A,maceio), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,santa_rosa), evening(A).
+occurrence(A,furto) :- geo_position(A,pe_pequeno), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- geo_position(A,cafuba), object(A,cartao_de_credito), nearby_location(A,hospital).
+occurrence(A,furto) :- geo_position(A,gragoata), dawn(A), object(A,celular).
+occurrence(A,roubo) :- geo_position(A,sete_pontes), business_day(A), object(A,bolsa_ou_mochila).
+occurrence(A,furto) :- object(A,mp4_ou_ipod), object(A,bicicleta), nearby_location(A,loja_de_eletronicos).
+occurrence(A,furto) :- morning(A), object(A,bicicleta), nearby_location(A,loja_de_eletronicos).
+occurrence(A,furto) :- geo_position(A,centro), object(A,bicicleta).
+occurrence(A,roubo) :- geo_position(A,engenhoca), dawn(A), object(A,celular).
+occurrence(A,arrombamento_domiciliar) :- object(A,moveis).
+occurrence(A,roubo) :- evening(A), object(A,celular), object(A,tablet).
+occurrence(A,roubo) :- geo_position(A,fonseca), object(A,notebook).
+occurrence(A,roubo) :- geo_position(A,sao_francisco), morning(A), object(A,bolsa_ou_mochila).
+occurrence(A,roubo) :- evening(A), object(A,bolsa_ou_mochila), object(A,tablet).
+occurrence(A,roubo) :- geo_position(A,fonseca), evening(A), object(A,bolsa_ou_mochila).
