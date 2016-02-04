@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<meta charset="UTF-8">
-  	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/map.css">
-	<script type="text/javascript" src="js/leafletembed.js"></script>
-	<script src="js/data.js"></script>
-	<link href="css/simple-sidebar.css" rel="stylesheet">
-	<link href="css/button.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
-	<script src="js/leaflet.awesome-markers.js"></script>
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
+  	<script type="text/javascript" src="js/leafletembed.js"></script>
+  	<script src="js/data.js"></script>
+  	<link href="css/simple-sidebar.css" rel="stylesheet">
+  	<link href="css/button.css" rel="stylesheet">
+  	<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+  	<script src="js/leaflet.awesome-markers.js"></script>
+  	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+  	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
     <title> SIAC </title>
   </head>
   <body>
@@ -111,6 +111,23 @@
   	var inductions = [];
   	var inductionsGroupLayer = null;
 
+  	var legend = L.control({position: 'bottomright'});
+
+  	legend.onAdd = function (map) 
+  	{
+
+    var div = L.DomUtil.create('div', 'info legend')
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    //for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + '#ea4e39' + '"></i> ' +
+            'Roubo' + '<br>';
+            //'grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+'');
+    //}
+
+	    return div;
+	};
 
 	$(document).ready(function()
 	{
@@ -119,6 +136,7 @@
 		prepareOccurrencesData(occurrencesData);
 		inductionsData = JSON.parse(rawInductionsData)
 		prepareInductionsData(inductionsData);
+		legend.addTo(map);
 	});
 
 	function prepareOccurrencesData(occurrencesData)
