@@ -31,13 +31,13 @@
                     </a>
                 </li>
                 <li>
-				    <a href="#" onclick="onClickOcorrencias()">
+				    <a href="#" id="show-occurrences" onclick="onClickOccurrences()">
 				    	Marcar Ocorrências
 				    </a>
                     <!--<a id="importData" href="#">Importar dados</a> -->
                 </li>
                 <li>
-                	<a href="#" onclick="onClickInducoes()">
+                	<a href="#" id="show-inductions" onclick="onClickInductions()">
                 		Marcar Induções
                 	</a>
                 </li>
@@ -104,49 +104,40 @@
 
   	/* variables */
   	var occurrencesData;
-  	var occurrences = [];
   	var occurrencesGroupLayer = null;
 
   	var inductionsData;
-  	var inductions = [];
   	var inductionsGroupLayer = null;
 
-  	var legend = L.control({position: 'bottomright'});
-
-  	legend.onAdd = function (map) 
-  	{
-
-    var div = L.DomUtil.create('div', 'info legend')
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    //for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + '#ea4e39' + '"></i> ' +
-            'Roubo' + '<br>';
-            //'grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+'');
-    //}
-
-	    return div;
-	};
+  	var neighbourhoodsData;
+  	var neighbourhoodsGroupLayer = null;
 
 	$(document).ready(function()
 	{
 		initmap();
+
+		/* Occurrences data */
 		occurrencesData = JSON.parse(rawOccurrencesData);
 		prepareOccurrencesData(occurrencesData);
+
+		/* Neighbourhoods data from data.js */
+		neighbourhoodsData = JSON.parse(neighbourhoodsGeoJson);
+		neighbourhoodsGroupLayer = L.geoJson();
+		neighbourhoodsGroupLayer.addData(neighbourhoodsData);
+		neighbourhoodsGroupLayer.addTo(map);
+		/* Inductions data */
 		inductionsData = JSON.parse(rawInductionsData)
 		prepareInductionsData(inductionsData);
-		legend.addTo(map);
 	});
 
 	function prepareOccurrencesData(occurrencesData)
 	{
+		occurrencesGroupLayer = L.layerGroup();
 		for (var i = 0; i < occurrencesData.length; i++) 
 		{
 			var marker = insertMarker(occurrencesData[i]);
 			insertPopUp(marker, occurrencesData[i]);
 		};
-		occurrencesGroupLayer = L.layerGroup(occurrences);
 	}
 	function insertMarker(rowData)
 	{
@@ -188,7 +179,7 @@
 			});
 			objects = objects.replace(/,\s*$/, "");
 			marker.bindPopup("<b>" + normalizedString + "</b>" + "<br><b>" + "Objetos roubados : " + "</b>" + objects + "." + "<br><b>" + "Hora : " + "</b>" + rowData.time);
-			occurrences.push(marker);
+			occurrencesGroupLayer.addLayer(marker);
 		}
 	}
 	function firstToUpperCase( str ) 
@@ -197,18 +188,37 @@
 	}
 	function prepareInductionsData(inductionsData)
 	{
-		console.log(inductionsData.rules)
+		inductionsGroupLayer = L.layerGroup();
 	}
-	function onClickInducoes()
+	function onClickInductions()
     {
     	map.removeLayer(occurrencesGroupLayer);
-    	alert('Ainda não implementado')
+    	document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
+    	if(map.hasLayer(inductionsGroupLayer))
+    	{
+
+    	}
+    	else
+    	{
+
+    	}
     }
-	function onClickOcorrencias()
+	function onClickOccurrences()
     {
-    	plotData();
+    	map.removeLayer(inductionsGroupLayer);
+    	if(!map.hasLayer(occurrencesGroupLayer))
+    	{
+    		plotOccurrences();
+    		document.getElementById("show-occurrences").textContent = "Desmarcar ocorrências";
+    	}
+    	else
+    	{
+    		map.removeLayer(occurrencesGroupLayer);
+    		document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
+    	}
+
     }
-	function plotData()
+	function plotOccurrences()
 	{
 		occurrencesGroupLayer.addTo(map);
 	}
