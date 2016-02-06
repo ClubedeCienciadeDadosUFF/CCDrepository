@@ -103,13 +103,8 @@
   	});
 
   	/* variables */
-  	var occurrencesData;
   	var occurrencesGroupLayer = null;
 
-  	var inductionsData;
-  	var inductionsGroupLayer = null;
-
-  	var neighbourhoodsData;
   	var neighbourhoodsGroupLayer = null;
 
 	$(document).ready(function()
@@ -117,17 +112,15 @@
 		initmap();
 
 		/* Occurrences data */
-		occurrencesData = JSON.parse(rawOccurrencesData);
+		var occurrencesData = JSON.parse(rawOccurrencesData);
 		prepareOccurrencesData(occurrencesData);
 
-		/* Neighbourhoods data from data.js */
-		neighbourhoodsData = JSON.parse(neighbourhoodsGeoJson);
-		neighbourhoodsGroupLayer = L.geoJson();
-		neighbourhoodsGroupLayer.addData(neighbourhoodsData);
-		neighbourhoodsGroupLayer.addTo(map);
 		/* Inductions data */
-		inductionsData = JSON.parse(rawInductionsData)
-		prepareInductionsData(inductionsData);
+		var inductionsData = JSON.parse(rawInductionsData)
+
+		/* Neighbourhoods data from data.js */
+		var neighbourhoodsData = JSON.parse(neighbourhoodsGeoJson);
+		prepareNeighbourhoodsData(neighbourhoodsData, inductionsData);
 	});
 
 	function prepareOccurrencesData(occurrencesData)
@@ -186,29 +179,47 @@
 	{
     	return str.substr(0, 1).toUpperCase() + str.substr(1);
 	}
-	function prepareInductionsData(inductionsData)
+	function prepareNeighbourhoodsData(neighbourhoodsData, inductionsData)
 	{
-		inductionsGroupLayer = L.layerGroup();
+		neighbourhoodsGroupLayer = L.geoJson();
+		for(var i = 0; i < inductionsData.rules.length; i++)
+		{
+			var neighbourhood = inductionsData.rules[i].geo_position;
+			if(neighbourhood.localeCompare("") != 0)
+			{
+				for (j in neighbourhoodsData.features)
+				{
+					if(neighbourhood.localeCompare(neighbourhoodsData.features[j].properties.name) == 0)
+					{
+						console.log(neighbourhoodsData.features[j]);
+						neighbourhoodsGroupLayer.addData(neighbourhoodsData.features[j]);
+					}
+				}
+			}
+		}
 	}
 	function onClickInductions()
     {
     	map.removeLayer(occurrencesGroupLayer);
     	document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
-    	if(map.hasLayer(inductionsGroupLayer))
+    	if(!map.hasLayer(neighbourhoodsGroupLayer))
     	{
-
+    		neighbourhoodsGroupLayer.addTo(map);
+    		document.getElementById("show-inductions").textContent = "Desmarcar induções";
     	}
     	else
     	{
-
+    		document.getElementById("show-inductions").textContent = "Marcar induções";
+    		map.removeLayer(neighbourhoodsGroupLayer);
     	}
     }
 	function onClickOccurrences()
     {
-    	map.removeLayer(inductionsGroupLayer);
+    	map.removeLayer(neighbourhoodsGroupLayer);
+    	document.getElementById("show-inductions").textContent = "Marcar induções";
     	if(!map.hasLayer(occurrencesGroupLayer))
     	{
-    		plotOccurrences();
+    		occurrencesGroupLayer.addTo(map);
     		document.getElementById("show-occurrences").textContent = "Desmarcar ocorrências";
     	}
     	else
@@ -218,10 +229,6 @@
     	}
 
     }
-	function plotOccurrences()
-	{
-		occurrencesGroupLayer.addTo(map);
-	}
     </script>
   </body>
 <html>
