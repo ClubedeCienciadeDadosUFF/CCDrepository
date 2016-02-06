@@ -118,7 +118,8 @@
 	info.update = function (props) 
 	{
 	    this._div.innerHTML = '<h4>Regras geradas</h4>' +  (props ?
-	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' : 'Passe o mouse em cima de um bairro');
+	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências'
+	        : 'Passe o mouse em cima de um bairro');
 	};
 
 	$(document).ready(function()
