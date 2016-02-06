@@ -226,12 +226,22 @@
 	function featureStyle(feature) 
 	{
 	    return {
-	        fillColor: "#FC4E2A",
+	        fillColor: getColor(feature.properties.density),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
 	        dashArray: '3',
 	        fillOpacity: 0.7};
+	}
+	function getColor(d) {
+    return d > 150  ? '#661a00' :
+           d > 120  ? '#992600' :
+           d > 100  ? '#cc3300' :
+           d > 80   ? '#ff4000' :
+           d > 50   ? '#ff6633' :
+           d > 30   ? '#ff8c66' :
+           d > 10   ? '#ffb399' :
+                      '#ffd9cc';
 	}
 	function zoomToFeature(e) 
 	{
