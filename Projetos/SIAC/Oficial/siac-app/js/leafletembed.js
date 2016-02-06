@@ -5,7 +5,7 @@ var plotlayers=[];
 
 function initmap() {
 	// set up the map
-	map = new L.Map('map');
+	map = new L.Map('map', {zoomControl:false});
 
 	// create the tile layer with correct attribution
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -15,7 +15,6 @@ function initmap() {
 	// start the map in Niteroi
 	map.setView(new L.LatLng(-22.9029100, -43.0999999),15);
 	map.addLayer(osm);
-	
 }
 
 

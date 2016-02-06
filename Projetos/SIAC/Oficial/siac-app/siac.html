@@ -16,6 +16,7 @@
   	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
   	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
+  	<link rel="stylesheet" href="css/info.css">
     <title> SIAC </title>
   </head>
   <body>
@@ -107,10 +108,24 @@
 
   	var neighbourhoodsGroupLayer = null;
 
+  	var info = L.control({position:'topright'});
+  	info.onAdd = function (map) 
+  	{
+	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	    this.update();
+	    return this._div;
+	};
+	info.update = function (props) 
+	{
+	    this._div.innerHTML = '<h4>Regras geradas</h4>' +  (props ?
+	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' : 'Passe o mouse em cima de um bairro');
+	};
+
 	$(document).ready(function()
 	{
 		initmap();
 
+		info.addTo(map);
 		/* Occurrences data */
 		var occurrencesData = JSON.parse(rawOccurrencesData);
 		prepareOccurrencesData(occurrencesData);
@@ -200,8 +215,12 @@
 	}
 	function onEachFeature(feature, layer) 
 	{
-	    layer.on('mouseover', highlightFeature);
-	    layer.on('mouseout', resetHighlight);
+	    layer.on(
+	    {
+	        mouseover: highlightFeature,
+	        mouseout: resetHighlight,
+	        click: zoomToFeature
+    	});
 	}
 	function featureStyle(feature) 
 	{
@@ -212,6 +231,10 @@
 	        color: 'white',
 	        dashArray: '3',
 	        fillOpacity: 0.7};
+	}
+	function zoomToFeature(e) 
+	{
+	    map.fitBounds(e.target.getBounds());
 	}
 	function highlightFeature(e) 
 	{
@@ -229,11 +252,13 @@
 	    {
 	        layer.bringToFront();
 	    }
+	    info.update(layer.feature.properties);
 	}
 	function resetHighlight(e) 
 	{
 		console.log('é chamado')
 	    neighbourhoodsGroupLayer.resetStyle(e.target);
+	    info.update();
 	}
 	function onClickInductions()
     {
