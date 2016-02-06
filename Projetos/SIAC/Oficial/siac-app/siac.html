@@ -181,7 +181,7 @@
 	}
 	function prepareNeighbourhoodsData(neighbourhoodsData, inductionsData)
 	{
-		neighbourhoodsGroupLayer = L.geoJson();
+		var features = [];
 		for(var i = 0; i < inductionsData.rules.length; i++)
 		{
 			var neighbourhood = inductionsData.rules[i].geo_position;
@@ -191,12 +191,49 @@
 				{
 					if(neighbourhood.localeCompare(neighbourhoodsData.features[j].properties.name) == 0)
 					{
-						console.log(neighbourhoodsData.features[j]);
-						neighbourhoodsGroupLayer.addData(neighbourhoodsData.features[j]);
+						features.push(neighbourhoodsData.features[j]);
 					}
 				}
 			}
 		}
+		neighbourhoodsGroupLayer = L.geoJson(features, {style : featureStyle, onEachFeature : onEachFeature});
+	}
+	function onEachFeature(feature, layer) 
+	{
+	    layer.on('mouseover', highlightFeature);
+	    layer.on('mouseout', resetHighlight);
+	}
+	function featureStyle(feature) 
+	{
+	    return {
+	        fillColor: "#FC4E2A",
+	        weight: 2,
+	        opacity: 1,
+	        color: 'white',
+	        dashArray: '3',
+	        fillOpacity: 0.7};
+	}
+	function highlightFeature(e) 
+	{
+	    var layer = e.target;
+
+	    layer.setStyle(
+	    {
+	        weight: 5,
+	        color: '#666',
+	        dashArray: '',
+	        fillOpacity: 0.7
+	    });
+
+	    if (!L.Browser.ie && !L.Browser.opera)
+	    {
+	        layer.bringToFront();
+	    }
+	}
+	function resetHighlight(e) 
+	{
+		console.log('é chamado')
+	    neighbourhoodsGroupLayer.resetStyle(e.target);
 	}
 	function onClickInductions()
     {
