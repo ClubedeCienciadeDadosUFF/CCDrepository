@@ -108,6 +108,9 @@
 
   	var neighbourhoodsGroupLayer = null;
 
+  	var timeMap = {"dawn":"Madrugada", "night":"Noite", "morning":"Manhã", "evening":"Tarde"}
+  	var dateMap = {"business_day":"Dia de semana", "weekend":"Fim de semana"}
+
   	var info = L.control({position:'topright'});
   	info.onAdd = function (map) 
   	{
@@ -117,8 +120,18 @@
 	};
 	info.update = function (props) 
 	{
+		var inductionsString = "";
+		if(props)
+		{
+			if(props.inductions.length >= 1)
+				inductionsString = props.inductions[0] + "<br/>";
+			for(var i = 1; i < props.inductions.length; i++)
+			{
+				inductionsString += props.inductions[i] + "<br/>";
+			}
+		}
 	    this._div.innerHTML = '<h4>Regras geradas</h4>' +  (props ?
-	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências'
+	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências <br/>' + inductionsString
 	        : 'Passe o mouse em cima de um bairro');
 	};
 
@@ -200,7 +213,7 @@
 		var features = [];
 		for(k in neighbourhoodsData.features)
 		{
-			neighbourhoodsData.features[k].inductions = [];
+			neighbourhoodsData.features[k].properties.inductions = [];
 		}
 		for(var i = 0; i < inductionsData.rules.length; i++)
 		{
@@ -209,10 +222,13 @@
 			{
 				for (j in neighbourhoodsData.features)
 				{
+					//console.log("Feature name : ", neighbourhoodsData.features[j].properties.name);
+					//console.log("Neighbourhood : ", neighbourhood);
 					if(neighbourhood.localeCompare(neighbourhoodsData.features[j].properties.name) == 0)
 					{
 						insertInduction(neighbourhoodsData.features[j], inductionsData.rules[i]);
 						features.push(neighbourhoodsData.features[j]);
+						break;
 					}
 				}
 			}
@@ -221,13 +237,13 @@
 	}
 	function insertInduction(feature, induction)
 	{
-		var date = induction.date;
+		var date = dateMap[induction.date];
 		if(!date)
 			date = "";
 		var occurrenceType = induction.occurrence_type;
 		if(!occurrenceType)
 			occurrenceType = "";
-		var time = induction.time;
+		var time = timeMap[induction.time];
 		if(!time)
 			time = "";
 		var nearbyLocations = induction.nearby_locations;
@@ -254,7 +270,13 @@
 		(occurrenceType.localeCompare("") != 0 ? firstToUpperCase(occurrenceType) + " e " : "") + (nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e "
 		: "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
 		inductionString = inductionString.replace(/e\s*$/, "");
-		console.log(inductionString);
+
+		var len = feature.properties.inductions.length;
+		inductionString = (len + 1) + ". " + inductionString;
+		feature.properties.inductions.push(inductionString);
+
+		//console.log(inductionString);
+		console.log(feature.properties.inductions);
 	}
 	function onEachFeature(feature, layer) 
 	{

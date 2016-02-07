@@ -15,6 +15,9 @@ function initmap() {
 	// start the map in Niteroi
 	map.setView(new L.LatLng(-22.9029100, -43.0999999),15);
 	map.addLayer(osm);
+	L.control.zoom({
+	     position:'bottomright'
+	}).addTo(map);
 }
 
 
