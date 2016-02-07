@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -198,6 +198,10 @@
 	function prepareNeighbourhoodsData(neighbourhoodsData, inductionsData)
 	{
 		var features = [];
+		for(k in neighbourhoodsData.features)
+		{
+			neighbourhoodsData.features[k].inductions = [];
+		}
 		for(var i = 0; i < inductionsData.rules.length; i++)
 		{
 			var neighbourhood = inductionsData.rules[i].geo_position;
@@ -207,12 +211,50 @@
 				{
 					if(neighbourhood.localeCompare(neighbourhoodsData.features[j].properties.name) == 0)
 					{
+						insertInduction(neighbourhoodsData.features[j], inductionsData.rules[i]);
 						features.push(neighbourhoodsData.features[j]);
 					}
 				}
 			}
 		}
 		neighbourhoodsGroupLayer = L.geoJson(features, {style : featureStyle, onEachFeature : onEachFeature});
+	}
+	function insertInduction(feature, induction)
+	{
+		var date = induction.date;
+		if(!date)
+			date = "";
+		var occurrenceType = induction.occurrence_type;
+		if(!occurrenceType)
+			occurrenceType = "";
+		var time = induction.time;
+		if(!time)
+			time = "";
+		var nearbyLocations = induction.nearby_locations;
+		var objects = induction.stolen_objects;
+		var objectsString = "";
+		for(var i = 0; i < objects.length; i++)
+		{
+			value = objects[i].toString();
+			value = value.toLowerCase();
+		    	objectsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
+		};
+		objectsString = objectsString.replace(/,\s*$/, "");
+		
+		var nearbyLocationsString = "";
+		for(var i = 0; i < nearbyLocations.length; i++)
+		{
+			value = nearbyLocations[i].toString();
+			value = value.toLowerCase();
+		    	nearbyLocationsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
+		};
+		nearbyLocationsString = nearbyLocationsString.replace(/,\s*$/, "");
+		
+		var inductionString = (date.localeCompare("") != 0 ? firstToUpperCase(date) + " e " : "") + (time.localeCompare("") != 0 ? firstToUpperCase(time) + " e " : "") +
+		(occurrenceType.localeCompare("") != 0 ? firstToUpperCase(occurrenceType) + " e " : "") + (nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e "
+		: "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
+		inductionString = inductionString.replace(/e\s*$/, "");
+		console.log(inductionString);
 	}
 	function onEachFeature(feature, layer) 
 	{
@@ -267,7 +309,6 @@
 	}
 	function resetHighlight(e) 
 	{
-		console.log('é chamado')
 	    neighbourhoodsGroupLayer.resetStyle(e.target);
 	    info.update();
 	}
