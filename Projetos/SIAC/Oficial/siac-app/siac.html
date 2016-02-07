@@ -276,7 +276,6 @@
 		feature.properties.inductions.push(inductionString);
 
 		//console.log(inductionString);
-		console.log(feature.properties.inductions);
 	}
 	function onEachFeature(feature, layer) 
 	{
@@ -298,14 +297,15 @@
 	        fillOpacity: 0.7};
 	}
 	function getColor(d) {
-    return d > 150  ? '#661a00' :
-           d > 120  ? '#992600' :
-           d > 100  ? '#cc3300' :
-           d > 80   ? '#ff4000' :
-           d > 50   ? '#ff6633' :
-           d > 30   ? '#ff8c66' :
-           d > 10   ? '#ffb399' :
-                      '#ffd9cc';
+
+    return d > 140  ? '#800026' :
+           d > 110  ? '#BD0026' :
+           d > 80   ? '#E31A1C' :
+           d > 40   ? '#FC4E2A' :
+           d > 30   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
+                      '#FFEDA0';
 	}
 	function zoomToFeature(e) 
 	{
