@@ -105,6 +105,7 @@
   	});
 
   	var legend = L.control({position: 'bottomright'});
+  	var occurrencesLegend = L.control({position: 'bottomright'});
 
 	legend.onAdd = function (map) 
 	{
@@ -118,6 +119,19 @@
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
 	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
 	    }
+
+	    return div;
+	};
+
+	occurrencesLegend.onAdd = function (map) 
+	{
+	    var div = L.DomUtil.create('div', 'info legend');
+	    var colors = {'Roubo':'#E84C38', 'Tentativa de assalto':'#F38E2E', 'Roubo de veículo':'#87BF27', 'Furto':'#37A8DB', 'Assalto a grupo':'#303030', 'Sequestro relâmpago':'#D252B9', 'Arrombamento veícular':'#436978','Arrombamento domiciliar':'#A23336', 'Arrastão':'#728224'};
+
+	    // loop through our density intervals and generate a label with a colored square for each interval
+	    $.each(colors, function(k, v){
+	    	div.innerHTML += '<i style="background:' + v + '"></i> ' + k + '<br/>'
+	    });
 
 	    return div;
 	};
@@ -357,6 +371,8 @@
 	function onClickInductions()
     {
     	map.removeLayer(occurrencesGroupLayer);
+    	if(document.getElementById("show-occurrences").textContent.localeCompare("Desmarcar ocorrências") == 0)
+    		map.removeControl(occurrencesLegend);
     	document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
     	if(!map.hasLayer(neighbourhoodsGroupLayer))
     	{
@@ -381,11 +397,13 @@
     	{
     		occurrencesGroupLayer.addTo(map);
     		document.getElementById("show-occurrences").textContent = "Desmarcar ocorrências";
+    		occurrencesLegend.addTo(map);
     	}
     	else
     	{
     		map.removeLayer(occurrencesGroupLayer);
     		document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
+    		map.removeControl(occurrencesLegend);
     	}
 
     }
