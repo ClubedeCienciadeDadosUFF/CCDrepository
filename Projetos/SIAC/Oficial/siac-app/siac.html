@@ -240,7 +240,8 @@
 		var date = dateMap[induction.date];
 		if(!date)
 			date = "";
-		var occurrenceType = induction.occurrence_type;
+		var occurrenceType = induction.occurence_type;
+		console.log(occurrenceType);
 		if(!occurrenceType)
 			occurrenceType = "";
 		var time = timeMap[induction.time];
@@ -267,10 +268,9 @@
 		nearbyLocationsString = nearbyLocationsString.replace(/,\s*$/, "");
 		
 		var inductionString = (date.localeCompare("") != 0 ? firstToUpperCase(date) + " e " : "") + (time.localeCompare("") != 0 ? firstToUpperCase(time) + " e " : "") +
-		(occurrenceType.localeCompare("") != 0 ? firstToUpperCase(occurrenceType) + " e " : "") + (nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e "
-		: "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
+		(nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e ": "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
 		inductionString = inductionString.replace(/e\s*$/, "");
-
+		inductionString = inductionString + (occurrenceType.localeCompare("") != 0 ? " -> " + firstToUpperCase(occurrenceType) : "");
 		var len = feature.properties.inductions.length;
 		inductionString = (len + 1) + ". " + inductionString;
 		feature.properties.inductions.push(inductionString);
