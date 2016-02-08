@@ -17,6 +17,7 @@
   	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
   	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
   	<link rel="stylesheet" href="css/info.css">
+  	<link rel="stylesheet" href="css/legend.css">
     <title> SIAC </title>
   </head>
   <body>
@@ -103,6 +104,24 @@
     markerColor: 'darkgreen'
   	});
 
+  	var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) 
+	{
+	    var div = L.DomUtil.create('div', 'info legend'),
+	        grades = [0, 20, 30, 40, 80, 110, 140],
+	        labels = [];
+
+	    // loop through our density intervals and generate a label with a colored square for each interval
+	    for (var i = 0; i < grades.length; i++) {
+	        div.innerHTML +=
+	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	    }
+
+	    return div;
+	};
+
   	/* variables */
   	var occurrencesGroupLayer = null;
 
@@ -133,6 +152,7 @@
 	    this._div.innerHTML = '<h4>Regras geradas</h4>' +  (props ?
 	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências <br/>' + inductionsString
 	        : 'Passe o mouse em cima de um bairro');
+
 	};
 
 	$(document).ready(function()
@@ -342,16 +362,20 @@
     	{
     		neighbourhoodsGroupLayer.addTo(map);
     		document.getElementById("show-inductions").textContent = "Desmarcar induções";
+			legend.addTo(map);
     	}
     	else
     	{
     		document.getElementById("show-inductions").textContent = "Marcar induções";
     		map.removeLayer(neighbourhoodsGroupLayer);
+    		map.removeControl(legend);
     	}
     }
 	function onClickOccurrences()
     {
     	map.removeLayer(neighbourhoodsGroupLayer);
+    	if(document.getElementById("show-inductions").textContent.localeCompare("Desmarcar induções") == 0)
+    		map.removeControl(legend);
     	document.getElementById("show-inductions").textContent = "Marcar induções";
     	if(!map.hasLayer(occurrencesGroupLayer))
     	{
