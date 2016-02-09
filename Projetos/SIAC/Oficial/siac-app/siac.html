@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -17,6 +17,7 @@
   	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
   	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
   	<link rel="stylesheet" href="css/info.css">
+  	<link rel="stylesheet" href="css/legend.css">
     <title> SIAC </title>
   </head>
   <body>
@@ -103,10 +104,45 @@
     markerColor: 'darkgreen'
   	});
 
+  	var legend = L.control({position: 'bottomright'});
+  	var occurrencesLegend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) 
+	{
+	    var div = L.DomUtil.create('div', 'info legend'),
+	        grades = [0, 20, 30, 40, 80, 110, 140],
+	        labels = [];
+
+	    // loop through our density intervals and generate a label with a colored square for each interval
+	    for (var i = 0; i < grades.length; i++) {
+	        div.innerHTML +=
+	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	    }
+
+	    return div;
+	};
+
+	occurrencesLegend.onAdd = function (map) 
+	{
+	    var div = L.DomUtil.create('div', 'info legend');
+	    var colors = {'Roubo':'#E84C38', 'Tentativa de assalto':'#F38E2E', 'Roubo de veículo':'#87BF27', 'Furto':'#37A8DB', 'Assalto a grupo':'#303030', 'Sequestro relâmpago':'#D252B9', 'Arrombamento veícular':'#436978','Arrombamento domiciliar':'#A23336', 'Arrastão':'#728224'};
+
+	    // loop through our density intervals and generate a label with a colored square for each interval
+	    $.each(colors, function(k, v){
+	    	div.innerHTML += '<i style="background:' + v + '"></i> ' + k + '<br/>'
+	    });
+
+	    return div;
+	};
+
   	/* variables */
   	var occurrencesGroupLayer = null;
 
   	var neighbourhoodsGroupLayer = null;
+
+  	var timeMap = {"dawn":"Madrugada", "night":"Noite", "morning":"Manhã", "evening":"Tarde"}
+  	var dateMap = {"business_day":"Dia de semana", "weekend":"Fim de semana"}
 
   	var info = L.control({position:'topright'});
   	info.onAdd = function (map) 
@@ -117,9 +153,20 @@
 	};
 	info.update = function (props) 
 	{
+		var inductionsString = "";
+		if(props)
+		{
+			if(props.inductions.length >= 1)
+				inductionsString = props.inductions[0] + "<br/>";
+			for(var i = 1; i < props.inductions.length; i++)
+			{
+				inductionsString += props.inductions[i] + "<br/>";
+			}
+		}
 	    this._div.innerHTML = '<h4>Regras geradas</h4>' +  (props ?
-	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências'
+	        '<b>' + firstToUpperCase(props.name.split('_').join(' ')) + '</b><br />' + props.density + ' ocorrências <br/>' + inductionsString
 	        : 'Passe o mouse em cima de um bairro');
+
 	};
 
 	$(document).ready(function()
@@ -198,6 +245,10 @@
 	function prepareNeighbourhoodsData(neighbourhoodsData, inductionsData)
 	{
 		var features = [];
+		for(k in neighbourhoodsData.features)
+		{
+			neighbourhoodsData.features[k].properties.inductions = [];
+		}
 		for(var i = 0; i < inductionsData.rules.length; i++)
 		{
 			var neighbourhood = inductionsData.rules[i].geo_position;
@@ -205,14 +256,60 @@
 			{
 				for (j in neighbourhoodsData.features)
 				{
+					//console.log("Feature name : ", neighbourhoodsData.features[j].properties.name);
+					//console.log("Neighbourhood : ", neighbourhood);
 					if(neighbourhood.localeCompare(neighbourhoodsData.features[j].properties.name) == 0)
 					{
+						insertInduction(neighbourhoodsData.features[j], inductionsData.rules[i]);
 						features.push(neighbourhoodsData.features[j]);
+						break;
 					}
 				}
 			}
 		}
 		neighbourhoodsGroupLayer = L.geoJson(features, {style : featureStyle, onEachFeature : onEachFeature});
+	}
+	function insertInduction(feature, induction)
+	{
+		var date = dateMap[induction.date];
+		if(!date)
+			date = "";
+		var occurrenceType = induction.occurence_type;
+		console.log(occurrenceType);
+		if(!occurrenceType)
+			occurrenceType = "";
+		var time = timeMap[induction.time];
+		if(!time)
+			time = "";
+		var nearbyLocations = induction.nearby_locations;
+		var objects = induction.stolen_objects;
+		var objectsString = "";
+		for(var i = 0; i < objects.length; i++)
+		{
+			value = objects[i].toString();
+			value = value.toLowerCase();
+		    	objectsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
+		};
+		objectsString = objectsString.replace(/,\s*$/, "");
+		
+		var nearbyLocationsString = "";
+		for(var i = 0; i < nearbyLocations.length; i++)
+		{
+			value = nearbyLocations[i].toString();
+			value = value.toLowerCase();
+		    	nearbyLocationsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
+		};
+		nearbyLocationsString = nearbyLocationsString.replace(/,\s*$/, "");
+		
+		var inductionString = (date.localeCompare("") != 0 ? firstToUpperCase(date) + " e " : "") + (time.localeCompare("") != 0 ? firstToUpperCase(time) + " e " : "") +
+		(nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e ": "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
+		inductionString = inductionString.replace(/e\s*$/, "");
+		inductionString = inductionString + (occurrenceType.localeCompare("") != 0 ? " -> " + firstToUpperCase(occurrenceType) : "");
+		var len = feature.properties.inductions.length;
+		inductionString = (len + 1) + ". " + inductionString;
+		feature.properties.inductions.push(inductionString);
+
+		//console.log(inductionString);
 	}
 	function onEachFeature(feature, layer) 
 	{
@@ -234,14 +331,15 @@
 	        fillOpacity: 0.7};
 	}
 	function getColor(d) {
-    return d > 150  ? '#661a00' :
-           d > 120  ? '#992600' :
-           d > 100  ? '#cc3300' :
-           d > 80   ? '#ff4000' :
-           d > 50   ? '#ff6633' :
-           d > 30   ? '#ff8c66' :
-           d > 10   ? '#ffb399' :
-                      '#ffd9cc';
+
+    return d > 140  ? '#800026' :
+           d > 110  ? '#BD0026' :
+           d > 80   ? '#E31A1C' :
+           d > 40   ? '#FC4E2A' :
+           d > 30   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
+                      '#FFEDA0';
 	}
 	function zoomToFeature(e) 
 	{
@@ -267,38 +365,45 @@
 	}
 	function resetHighlight(e) 
 	{
-		console.log('é chamado')
 	    neighbourhoodsGroupLayer.resetStyle(e.target);
 	    info.update();
 	}
 	function onClickInductions()
     {
     	map.removeLayer(occurrencesGroupLayer);
+    	if(document.getElementById("show-occurrences").textContent.localeCompare("Desmarcar ocorrências") == 0)
+    		map.removeControl(occurrencesLegend);
     	document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
     	if(!map.hasLayer(neighbourhoodsGroupLayer))
     	{
     		neighbourhoodsGroupLayer.addTo(map);
     		document.getElementById("show-inductions").textContent = "Desmarcar induções";
+			legend.addTo(map);
     	}
     	else
     	{
     		document.getElementById("show-inductions").textContent = "Marcar induções";
     		map.removeLayer(neighbourhoodsGroupLayer);
+    		map.removeControl(legend);
     	}
     }
 	function onClickOccurrences()
     {
     	map.removeLayer(neighbourhoodsGroupLayer);
+    	if(document.getElementById("show-inductions").textContent.localeCompare("Desmarcar induções") == 0)
+    		map.removeControl(legend);
     	document.getElementById("show-inductions").textContent = "Marcar induções";
     	if(!map.hasLayer(occurrencesGroupLayer))
     	{
     		occurrencesGroupLayer.addTo(map);
     		document.getElementById("show-occurrences").textContent = "Desmarcar ocorrências";
+    		occurrencesLegend.addTo(map);
     	}
     	else
     	{
     		map.removeLayer(occurrencesGroupLayer);
     		document.getElementById("show-occurrences").textContent = "Marcar ocorrências";
+    		map.removeControl(occurrencesLegend);
     	}
 
     }
