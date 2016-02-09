@@ -2,7 +2,7 @@
 
 [Rule 4] [Pos cover = 2 Neg cover = 0]
 occurrence(A,roubo) :-
-   geo_position(A,venda_da_cruz), object(A,bolsa_ou_mochila).
+geo_position(A,venda_da_cruz), object(A,bolsa_ou_mochila).
 
 [Rule 5] [Pos cover = 5 Neg cover = 0]
 occurrence(A,roubo) :-
