@@ -1,0 +1,9 @@
+.hidden-mvlogo {
+    position: absolute;
+    top: -9999999px;
+}
+
+#animation-mvlogo {
+    background-repeat: no-repeat;
+    position : fixed;
+}
