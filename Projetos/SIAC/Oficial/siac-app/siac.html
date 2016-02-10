@@ -173,7 +173,6 @@
 	{
 		initmap();
 
-		info.addTo(map);
 		/* Occurrences data */
 		var occurrencesData = JSON.parse(rawOccurrencesData);
 		prepareOccurrencesData(occurrencesData);
@@ -184,6 +183,8 @@
 		/* Neighbourhoods data from data.js */
 		var neighbourhoodsData = JSON.parse(neighbourhoodsGeoJson);
 		prepareNeighbourhoodsData(neighbourhoodsData, inductionsData);
+
+		onClickOccurrences();
 	});
 
 	function prepareOccurrencesData(occurrencesData)
@@ -379,19 +380,24 @@
     		neighbourhoodsGroupLayer.addTo(map);
     		document.getElementById("show-inductions").textContent = "Desmarcar induções";
 			legend.addTo(map);
+			info.addTo(map);
     	}
     	else
     	{
     		document.getElementById("show-inductions").textContent = "Marcar induções";
     		map.removeLayer(neighbourhoodsGroupLayer);
     		map.removeControl(legend);
+    		map.removeControl(info);
     	}
     }
 	function onClickOccurrences()
     {
     	map.removeLayer(neighbourhoodsGroupLayer);
     	if(document.getElementById("show-inductions").textContent.localeCompare("Desmarcar induções") == 0)
+    	{
     		map.removeControl(legend);
+    		map.removeControl(info);
+    	}
     	document.getElementById("show-inductions").textContent = "Marcar induções";
     	if(!map.hasLayer(occurrencesGroupLayer))
     	{
