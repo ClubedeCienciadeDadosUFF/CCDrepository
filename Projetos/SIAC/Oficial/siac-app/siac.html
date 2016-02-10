@@ -141,8 +141,8 @@
 
   	var neighbourhoodsGroupLayer = null;
 
-  	var timeMap = {"dawn":"Madrugada", "night":"Noite", "morning":"Manhã", "evening":"Tarde"}
-  	var dateMap = {"business_day":"Dia de semana", "weekend":"Fim de semana"}
+  	var timeMap = {"dawn":"Período da madrugada", "night":"Período da noite", "morning":"Período da manhã", "evening":"Período da tarde"};
+  	var dateMap = {"business_day":"Dia de semana", "weekend":"Fim de semana"};
 
   	var info = L.control({position:'topright'});
   	info.onAdd = function (map) 
@@ -276,14 +276,15 @@
 		if(!date)
 			date = "";
 		var occurrenceType = induction.occurence_type;
-		console.log(occurrenceType);
 		if(!occurrenceType)
 			occurrenceType = "";
 		var time = timeMap[induction.time];
 		if(!time)
 			time = "";
 		var nearbyLocations = induction.nearby_locations;
+
 		var objects = induction.stolen_objects;
+
 		var objectsString = "";
 		for(var i = 0; i < objects.length; i++)
 		{
@@ -293,13 +294,15 @@
 		};
 		objectsString = objectsString.replace(/,\s*$/, "");
 		
-		var nearbyLocationsString = "";
+		var nearbyLocationsString = "Perto de ";
 		for(var i = 0; i < nearbyLocations.length; i++)
 		{
 			value = nearbyLocations[i].toString();
 			value = value.toLowerCase();
 		    	nearbyLocationsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
 		};
+		if(nearbyLocationsString.localeCompare("Perto de ") == 0)
+			nearbyLocationsString = "";
 		nearbyLocationsString = nearbyLocationsString.replace(/,\s*$/, "");
 		
 		var inductionString = (date.localeCompare("") != 0 ? firstToUpperCase(date) + " e " : "") + (time.localeCompare("") != 0 ? firstToUpperCase(time) + " e " : "") +
