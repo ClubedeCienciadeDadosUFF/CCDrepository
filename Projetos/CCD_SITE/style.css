@@ -85,6 +85,10 @@ img{
   margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
 
+.text-styling {
+  text-align: justify;
+}
+
 /*scrol to top*/
 
 .scrollToTop {
