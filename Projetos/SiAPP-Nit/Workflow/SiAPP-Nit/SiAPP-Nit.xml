@@ -1,13 +1,13 @@
-<SIAC>
+<SiAPP-Nit>
 	<environment verbose="false" type="LOCAL"/>
-	<workspace workflow_dir="/home/bbspock/CCDrepository/Projetos/SIAC/Oficial/Workflow/SIAC/"/>
+	<workspace workflow_dir="/home/bbspock/CCDrepository/Projetos/SIAC/Oficial/Workflow/SiAPP-Nit/"/>
 	<!--database name="scc-sciphy" username="scc2" password="scc2" port="5432" server="localhost"/-->
 	<conceptualWorkflow tag="siac-wf1" template="%=WFDIR%/scripts" description="data process of SIAC">
 		<!--activity tag="extract" script="scripts/extract.R" description="extract data from OndeFuiRoubado.com.br">
-			<relation reltype="Output" name="extract.csv"/>			
+			<relation reltype="Output" name="extract.csv"/>
 		</activity-->
 		<!--activity tag="geo-position" script="scripts/?" description="extract geo position">
-			<relation reltype="Output" name="geo_places.csv"/>			
+			<relation reltype="Output" name="geo_places.csv"/>
 		</activity-->
 		<!--activity tag="city" script="scripts/city_occurrences.R" description="extract city's occurrence">
 			<relation reltype="Input" name="Niteroi,extract.csv"/>
@@ -27,4 +27,4 @@
         </activity>
 	</conceptualWorkflow>
 	<executionWorkflow tag="siac-wf1" expdir="%=WFDIR%/exp" user_interaction="false"/>
-</SIAC>
+</SiAPP-Nit>

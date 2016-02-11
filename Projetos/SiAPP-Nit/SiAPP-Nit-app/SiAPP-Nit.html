@@ -18,18 +18,18 @@
   	<link rel="stylesheet" href="css/build.css"> <!-- This is the checkbox and RadioButton -->
   	<link rel="stylesheet" href="css/info.css">
   	<link rel="stylesheet" href="css/legend.css">
-    <title> SIAC </title>
+    <title> SiAPP-Nit </title>
   </head>
   <body>
-  	
-  	<div id="wrapper">      
+
+  	<div id="wrapper">
 
   		<!-- /#sidebar-wrapper -->
   		<div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        SIAC
+                        SiAPP-Nit
                     </a>
                 </li>
                 <li>
@@ -107,7 +107,7 @@
   	var legend = L.control({position: 'bottomright'});
   	var occurrencesLegend = L.control({position: 'bottomright'});
 
-	legend.onAdd = function (map) 
+	legend.onAdd = function (map)
 	{
 	    var div = L.DomUtil.create('div', 'info legend'),
 	        grades = [0, 20, 30, 40, 80, 110, 140],
@@ -123,7 +123,7 @@
 	    return div;
 	};
 
-	occurrencesLegend.onAdd = function (map) 
+	occurrencesLegend.onAdd = function (map)
 	{
 	    var div = L.DomUtil.create('div', 'info legend');
 	    var colors = {'Roubo':'#E84C38', 'Tentativa de assalto':'#F38E2E', 'Roubo de veículo':'#87BF27', 'Furto':'#37A8DB', 'Assalto a grupo':'#303030', 'Sequestro relâmpago':'#D252B9', 'Arrombamento veícular':'#436978','Arrombamento domiciliar':'#A23336', 'Arrastão':'#728224'};
@@ -145,13 +145,13 @@
   	var dateMap = {"business_day":"Dia de semana", "weekend":"Fim de semana"};
 
   	var info = L.control({position:'topright'});
-  	info.onAdd = function (map) 
+  	info.onAdd = function (map)
   	{
 	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
 	    this.update();
 	    return this._div;
 	};
-	info.update = function (props) 
+	info.update = function (props)
 	{
 		var inductionsString = "";
 		if(props)
@@ -190,7 +190,7 @@
 	function prepareOccurrencesData(occurrencesData)
 	{
 		occurrencesGroupLayer = L.layerGroup();
-		for (var i = 0; i < occurrencesData.length; i++) 
+		for (var i = 0; i < occurrencesData.length; i++)
 		{
 			var marker = insertMarker(occurrencesData[i]);
 			insertPopUp(marker, occurrencesData[i]);
@@ -205,7 +205,7 @@
 			marker = L.marker([rowData.latitude, rowData.longitude], {icon: furtoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("roubo_de_veiculo") == 0)
 			marker = L.marker([rowData.latitude, rowData.longitude], {icon: rouboDeVeiculoMarker});
-		else if(rowData.occurrence_type.toLowerCase().localeCompare("assalto_a_grupo") == 0) 
+		else if(rowData.occurrence_type.toLowerCase().localeCompare("assalto_a_grupo") == 0)
 			marker = L.marker([rowData.latitude, rowData.longitude], {icon: assaltoAGrupoMarker});
 		else if(rowData.occurrence_type.toLowerCase().localeCompare("arrastao") == 0)
 			marker = L.marker([rowData.latitude, rowData.longitude], {icon: arrastaoMarker});
@@ -227,7 +227,7 @@
 			var normalizedString = occurrence_type.split('_').join(' ');
 			normalizedString = firstToUpperCase(normalizedString);
 			var objects = "";
-			$.each(rowData, function(k, v) 
+			$.each(rowData, function(k, v)
 			{
 				value = v.toString();
 				value = value.toLowerCase();
@@ -239,7 +239,7 @@
 			occurrencesGroupLayer.addLayer(marker);
 		}
 	}
-	function firstToUpperCase( str ) 
+	function firstToUpperCase( str )
 	{
     	return str.substr(0, 1).toUpperCase() + str.substr(1);
 	}
@@ -293,7 +293,7 @@
 		    	objectsString +=  firstToUpperCase(value.split('_').join(' ')) + ", ";
 		};
 		objectsString = objectsString.replace(/,\s*$/, "");
-		
+
 		var nearbyLocationsString = "Perto de ";
 		for(var i = 0; i < nearbyLocations.length; i++)
 		{
@@ -304,7 +304,7 @@
 		if(nearbyLocationsString.localeCompare("Perto de ") == 0)
 			nearbyLocationsString = "";
 		nearbyLocationsString = nearbyLocationsString.replace(/,\s*$/, "");
-		
+
 		var inductionString = (date.localeCompare("") != 0 ? firstToUpperCase(date) + " e " : "") + (time.localeCompare("") != 0 ? firstToUpperCase(time) + " e " : "") +
 		(nearbyLocationsString.localeCompare("") != 0 ? nearbyLocationsString + " e ": "") + (objectsString.localeCompare("") != 0 ? objectsString + " e " : "");
 		inductionString = inductionString.replace(/e\s*$/, "");
@@ -315,7 +315,7 @@
 
 		//console.log(inductionString);
 	}
-	function onEachFeature(feature, layer) 
+	function onEachFeature(feature, layer)
 	{
 	    layer.on(
 	    {
@@ -324,7 +324,7 @@
 	        click: zoomToFeature
     	});
 	}
-	function featureStyle(feature) 
+	function featureStyle(feature)
 	{
 	    return {
 	        fillColor: getColor(feature.properties.density),
@@ -345,11 +345,11 @@
            d > 10   ? '#FED976' :
                       '#FFEDA0';
 	}
-	function zoomToFeature(e) 
+	function zoomToFeature(e)
 	{
 	    map.fitBounds(e.target.getBounds());
 	}
-	function highlightFeature(e) 
+	function highlightFeature(e)
 	{
 	    var layer = e.target;
 
@@ -367,7 +367,7 @@
 	    }
 	    info.update(layer.feature.properties);
 	}
-	function resetHighlight(e) 
+	function resetHighlight(e)
 	{
 	    neighbourhoodsGroupLayer.resetStyle(e.target);
 	    info.update();
@@ -419,4 +419,3 @@
     </script>
   </body>
 <html>
-
