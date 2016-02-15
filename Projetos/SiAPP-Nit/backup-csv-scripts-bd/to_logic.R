@@ -113,19 +113,34 @@ build_negative <- function(FILE_NAME = "time_discretize_suburb_updated.csv") {
   dataset <- read.csv(FILE_NAME)
   crime_list <- c("roubo","furto","assalto_relampago", "roubo_de_veiculo","assalto_a_grupo",
                   "arrombamento_veicular","arrombamento_domiciliar","sequestro_relampago")
+  last_occ <- -1
   for(i in 1:length(dataset$n_occurrence)) {
     crime <- normalize(substr(dataset$occurrence_type[i],
                               1, nchar(as.vector(dataset$occurrence_type[i]))-1))
-    for(nc in crime_list) {
-      if(nc != crime) {
-        #.n
-        write(paste("occurrence(",
-                    dataset$n_occurrence[i],
-                    ",",
-                    nc,
-                    ").", sep = ""),
-              "siac.n", append = TRUE, sep = "\n")
-      }
+    if(last_occ != dataset$n_occurrence[i])
+    {
+      repeat
+      {
+        index <- sample(1:length(crime_list), 2, replace=F)
+        if((crime_list[index[1]] != crime) && (crime_list[index[2]] != crime))
+        {
+          #.n
+          write(paste("occurrence(",
+                      dataset$n_occurrence[i],
+                      ",",
+                      crime_list[index[1]],
+                      ").", sep = ""),
+                "siac.n", append = TRUE, sep = "\n")
+          write(paste("occurrence(",
+                      dataset$n_occurrence[i],
+                      ",",
+                      crime_list[index[2]],
+                      ").", sep = ""),
+                "siac.n", append = TRUE, sep = "\n")
+          break
+        }
+      }   
+      last_occ = dataset$n_occurrence[i]
     }
   }
 }
