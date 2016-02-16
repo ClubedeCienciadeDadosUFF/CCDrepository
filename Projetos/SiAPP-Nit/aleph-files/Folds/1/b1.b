@@ -29,6 +29,11 @@
 :-set(test_neg,'a1.n').
 :-set(minpos,2).
 
+/*
+:-set(evalfn,auto_m).
+:-set(noise,500).
+*/
+
 geo_position(69,icarai).
 business_day(69).
 dawn(69).
