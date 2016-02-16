@@ -1,0 +1,66 @@
+[Rule 1] [Pos cover = 146 Neg cover = 125]
+occurrence(A,furto).
+
+[Rule 2] [Pos cover = 400 Neg cover = 71]
+occurrence(A,roubo).
+
+[Rule 4] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   nearby_location(A,policia_militar).
+
+[Rule 7] [Pos cover = 2 Neg cover = 0]
+occurrence(A,assalto_a_grupo) :-
+   geo_position(A,inga), dawn(A).
+
+[Rule 15] [Pos cover = 2 Neg cover = 0]
+occurrence(A,sequestro_relampago) :-
+   night(A), object(A,relogio), nearby_location(A,posto_de_gasolina).
+
+[Rule 27] [Pos cover = 6 Neg cover = 3]
+occurrence(A,roubo_de_veiculo) :-
+   weekend(A), object(A,carteira), object(A,celular).
+
+[Rule 29] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,icarai), dawn(A), nearby_location(A,posto_de_gasolina).
+
+[Rule 59] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,sao_lourenco), nearby_location(A,super_mercado).
+
+[Rule 61] [Pos cover = 3 Neg cover = 1]
+occurrence(A,sequestro_relampago) :-
+   night(A), object(A,outros), nearby_location(A,ponto_turistico).
+
+[Rule 67] [Pos cover = 2 Neg cover = 0]
+occurrence(A,assalto_a_grupo) :-
+   geo_position(A,gragoata).
+
+[Rule 96] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,cafuba).
+
+[Training set performance]
+            Actual
+        +          -  
+     + 569        200        769 
+Pred 
+     - 123        1183        1306 
+
+       692        1383        2075 
+
+Accuracy = 0.84433734939759
+[Training set summary] [[569,200,123,1183]]
+[Test set performance]
+           Actual
+        +          -  
+     + 56        30        86 
+Pred 
+     - 20        123        143 
+
+       76        153        229 
+
+Accuracy = 0.781659388646288
+[Test set summary] [[56,30,20,123]]
+[time taken] [11.62]
+[total clauses constructed] [48643]

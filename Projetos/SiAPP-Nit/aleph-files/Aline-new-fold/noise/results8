@@ -1,0 +1,70 @@
+[Rule 1] [Pos cover = 21 Neg cover = 11]
+occurrence(A,furto) :-
+   evening(A).
+
+[Rule 2] [Pos cover = 403 Neg cover = 72]
+occurrence(A,roubo).
+
+[Rule 8] [Pos cover = 4 Neg cover = 1]
+occurrence(A,furto) :-
+   geo_position(A,inga), object(A,outros).
+
+[Rule 10] [Pos cover = 3 Neg cover = 0]
+occurrence(A,assalto_a_grupo) :-
+   dawn(A), object(A,bolsa_ou_mochila), nearby_location(A,bar).
+
+[Rule 19] [Pos cover = 2 Neg cover = 0]
+occurrence(A,sequestro_relampago) :-
+   night(A), object(A,relogio), nearby_location(A,posto_de_gasolina).
+
+[Rule 28] [Pos cover = 20 Neg cover = 1]
+occurrence(A,furto) :-
+   business_day(A), nearby_location(A,ponto_turistico), nearby_location(A,loja_de_eletronicos).
+
+[Rule 34] [Pos cover = 4 Neg cover = 2]
+occurrence(A,assalto_a_grupo) :-
+   weekend(A), nearby_location(A,ponto_turistico).
+
+[Rule 40] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,icarai), dawn(A), nearby_location(A,posto_de_gasolina).
+
+[Rule 52] [Pos cover = 2 Neg cover = 0]
+occurrence(A,tentativa_de_assalto).
+
+[Rule 55] [Pos cover = 5 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,icarai), object(A,bolsa_ou_mochila), nearby_location(A,super_mercado).
+
+[Rule 74] [Pos cover = 4 Neg cover = 1]
+occurrence(A,furto) :-
+   geo_position(A,santa_rosa), business_day(A).
+
+[Rule 105] [Pos cover = 4 Neg cover = 2]
+occurrence(A,roubo_de_veiculo) :-
+   nearby_location(A,hospital), nearby_location(A,restaurante).
+
+[Rule 120] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,sao_lourenco), nearby_location(A,super_mercado).
+
+[Rule 124] [Pos cover = 3 Neg cover = 1]
+occurrence(A,sequestro_relampago) :-
+   night(A), object(A,outros), nearby_location(A,ponto_turistico).
+
+[Training set performance]
+            Actual
+        +          -  
+     + 468         91         559 
+Pred 
+     - 224        1292        1516 
+
+       692        1383        2075 
+
+Accuracy = 0.848192771084337
+[Training set summary] [[468,91,224,1292]]
+[cannot open] [test4.f]
+[cannot open] [test4.n]
+[time taken] [13.476]
+[total clauses constructed] [59740]
+

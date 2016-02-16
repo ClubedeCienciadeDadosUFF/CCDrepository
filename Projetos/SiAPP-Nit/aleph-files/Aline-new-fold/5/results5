@@ -1,0 +1,176 @@
+[Rule 2] [Pos cover = 14 Neg cover = 0]
+occurrence(A,furto) :-
+   object(A,celular), nearby_location(A,universidade).
+
+[Rule 8] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,santa_barbara).
+
+[Rule 14] [Pos cover = 6 Neg cover = 0]
+occurrence(A,roubo) :-
+   evening(A), object(A,celular), object(A,documentos).
+
+[Rule 16] [Pos cover = 3 Neg cover = 0]
+occurrence(A,furto) :-
+   weekend(A), dawn(A).
+
+[Rule 18] [Pos cover = 3 Neg cover = 0]
+occurrence(A,assalto_a_grupo) :-
+   dawn(A), object(A,bolsa_ou_mochila), nearby_location(A,bar).
+
+[Rule 20] [Pos cover = 17 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,icarai), night(A).
+
+[Rule 32] [Pos cover = 14 Neg cover = 0]
+occurrence(A,roubo) :-
+   evening(A), object(A,celular), nearby_location(A,loja_de_eletronicos).
+
+[Rule 34] [Pos cover = 25 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), object(A,documentos), nearby_location(A,escola).
+
+[Rule 38] [Pos cover = 14 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,inga), nearby_location(A,bar), nearby_location(A,escola).
+
+[Rule 41] [Pos cover = 2 Neg cover = 0]
+occurrence(A,sequestro_relampago) :-
+   night(A), object(A,relogio), nearby_location(A,posto_de_gasolina).
+
+[Rule 51] [Pos cover = 39 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), object(A,bolsa_ou_mochila).
+
+[Rule 61] [Pos cover = 5 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,icarai), nearby_location(A,ponto_turistico), nearby_location(A,escola).
+
+[Rule 80] [Pos cover = 3 Neg cover = 0]
+occurrence(A,furto) :-
+   object(A,bicicleta).
+
+[Rule 87] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,icarai), dawn(A).
+
+[Rule 96] [Pos cover = 5 Neg cover = 0]
+occurrence(A,furto) :-
+   business_day(A), evening(A), object(A,carteira).
+
+[Rule 103] [Pos cover = 10 Neg cover = 0]
+occurrence(A,roubo) :-
+   morning(A), object(A,carteira).
+
+[Rule 111] [Pos cover = 2 Neg cover = 0]
+occurrence(A,tentativa_de_assalto).
+
+[Rule 120] [Pos cover = 9 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,vital_brazil), nearby_location(A,B).
+
+[Rule 121] [Pos cover = 3 Neg cover = 0]
+occurrence(A,roubo) :-
+   weekend(A), nearby_location(A,clinica).
+
+[Rule 122] [Pos cover = 5 Neg cover = 0]
+occurrence(A,furto) :-
+   object(A,bolsa_ou_mochila), nearby_location(A,loja_de_eletronicos), nearby_location(A,super_mercado).
+
+[Rule 136] [Pos cover = 24 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), nearby_location(A,posto_de_gasolina).
+
+[Rule 142] [Pos cover = 3 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,centro), nearby_location(A,teatro).
+
+[Rule 154] [Pos cover = 5 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,pe_pequeno), object(A,celular).
+
+[Rule 156] [Pos cover = 2 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,largo_do_barradas).
+
+[Rule 171] [Pos cover = 9 Neg cover = 0]
+occurrence(A,roubo) :-
+   business_day(A), object(A,cartao_de_credito), nearby_location(A,super_mercado).
+
+[Rule 176] [Pos cover = 9 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,inga), object(A,outros).
+
+[Rule 177] [Pos cover = 3 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,santa_rosa), dawn(A).
+
+[Rule 208] [Pos cover = 5 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,centro), object(A,carteira), object(A,documentos).
+
+[Rule 217] [Pos cover = 5 Neg cover = 0]
+occurrence(A,roubo) :-
+   dawn(A), object(A,outros), nearby_location(A,ponto_turistico).
+
+[Rule 235] [Pos cover = 12 Neg cover = 0]
+occurrence(A,roubo) :-
+   weekend(A), object(A,outros).
+
+[Rule 240] [Pos cover = 7 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,centro), object(A,carteira), object(A,celular).
+
+[Rule 273] [Pos cover = 6 Neg cover = 0]
+occurrence(A,roubo) :-
+   morning(A), object(A,celular), object(A,outros).
+
+[Rule 352] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   weekend(A), object(A,relogio), nearby_location(A,bar).
+
+[Rule 373] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,cafuba).
+
+[Rule 394] [Pos cover = 6 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,sao_francisco), nearby_location(A,restaurante).
+
+[Rule 410] [Pos cover = 2 Neg cover = 0]
+occurrence(A,furto) :-
+   night(A), object(A,relogio).
+
+[Rule 444] [Pos cover = 7 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,icarai), nearby_location(A,clinica), nearby_location(A,posto_de_gasolina).
+
+[Rule 506] [Pos cover = 4 Neg cover = 0]
+occurrence(A,roubo) :-
+   evening(A), nearby_location(A,ponto_turistico), nearby_location(A,super_mercado).
+
+[Training set performance]
+            Actual
+        +          -  
+     + 175         0         175 
+Pred 
+     - 517        1383        1900 
+
+       692        1383        2075 
+
+Accuracy = 0.750843373493976
+[Training set summary] [[175,0,517,1383]]
+[Test set performance]
+           Actual
+        +          -  
+     + 14         3         17 
+Pred 
+     - 62        150        212 
+
+       76        153        229 
+
+Accuracy = 0.716157205240175
+[Test set summary] [[14,3,62,150]]
+[time taken] [9.072]
+[total clauses constructed] [130170]
+

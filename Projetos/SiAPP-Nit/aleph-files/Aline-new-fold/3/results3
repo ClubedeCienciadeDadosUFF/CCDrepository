@@ -1,0 +1,155 @@
+[Rule 2] [Pos cover = 16 Neg cover = 0]
+occurrence(A,furto) :-
+   business_day(A), object(A,celular), nearby_location(A,universidade).
+
+[Rule 8] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,santa_barbara).
+
+[Rule 14] [Pos cover = 7 Neg cover = 0]
+occurrence(A,roubo) :-
+   evening(A), nearby_location(A,policia_civil).
+
+[Rule 16] [Pos cover = 3 Neg cover = 0]
+occurrence(A,furto) :-
+   weekend(A), dawn(A).
+
+[Rule 18] [Pos cover = 2 Neg cover = 0]
+occurrence(A,assalto_a_grupo) :-
+   geo_position(A,inga), dawn(A).
+
+[Rule 20] [Pos cover = 18 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,icarai), night(A).
+
+[Rule 32] [Pos cover = 13 Neg cover = 0]
+occurrence(A,roubo) :-
+   evening(A), object(A,celular), nearby_location(A,loja_de_eletronicos).
+
+[Rule 34] [Pos cover = 25 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), object(A,documentos), nearby_location(A,escola).
+
+[Rule 38] [Pos cover = 15 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,inga), nearby_location(A,bar), nearby_location(A,escola).
+
+[Rule 51] [Pos cover = 39 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), object(A,bolsa_ou_mochila).
+
+[Rule 61] [Pos cover = 4 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,icarai), business_day(A), nearby_location(A,ponto_turistico).
+
+[Rule 67] [Pos cover = 5 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,sao_lourenco).
+
+[Rule 88] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,icarai), dawn(A), nearby_location(A,posto_de_gasolina).
+
+[Rule 97] [Pos cover = 6 Neg cover = 0]
+occurrence(A,furto) :-
+   business_day(A), evening(A), object(A,carteira).
+
+[Rule 111] [Pos cover = 2 Neg cover = 0]
+occurrence(A,tentativa_de_assalto).
+
+[Rule 114] [Pos cover = 9 Neg cover = 0]
+occurrence(A,roubo) :-
+   morning(A), object(A,carteira).
+
+[Rule 121] [Pos cover = 9 Neg cover = 0]
+occurrence(A,roubo) :-
+   nearby_location(A,hospital).
+
+[Rule 122] [Pos cover = 3 Neg cover = 0]
+occurrence(A,roubo) :-
+   weekend(A), nearby_location(A,clinica).
+
+[Rule 123] [Pos cover = 4 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,icarai), object(A,bolsa_ou_mochila), nearby_location(A,super_mercado).
+
+[Rule 137] [Pos cover = 22 Neg cover = 0]
+occurrence(A,roubo) :-
+   night(A), nearby_location(A,posto_de_gasolina).
+
+[Rule 146] [Pos cover = 11 Neg cover = 0]
+occurrence(A,roubo) :-
+   object(A,documentos), object(A,outros), nearby_location(A,ponto_turistico).
+
+[Rule 150] [Pos cover = 6 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,centro), object(A,carteira), object(A,documentos).
+
+[Rule 181] [Pos cover = 5 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,centro), night(A), object(A,carteira).
+
+[Rule 200] [Pos cover = 3 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,centro), dawn(A), object(A,carteira).
+
+[Rule 223] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,sao_lourenco), nearby_location(A,super_mercado).
+
+[Rule 228] [Pos cover = 6 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,boa_viagem).
+
+[Rule 229] [Pos cover = 5 Neg cover = 0]
+occurrence(A,roubo) :-
+   object(A,relogio), nearby_location(A,super_mercado).
+
+[Rule 259] [Pos cover = 2 Neg cover = 0]
+occurrence(A,furto) :-
+   geo_position(A,santa_rosa), object(A,relogio).
+
+[Rule 272] [Pos cover = 8 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,vital_brazil), nearby_location(A,B).
+
+[Rule 276] [Pos cover = 6 Neg cover = 0]
+occurrence(A,roubo) :-
+   morning(A), object(A,celular), object(A,outros).
+
+[Rule 355] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   weekend(A), object(A,relogio), nearby_location(A,bar).
+
+[Rule 376] [Pos cover = 2 Neg cover = 0]
+occurrence(A,roubo_de_veiculo) :-
+   geo_position(A,cafuba).
+
+[Rule 444] [Pos cover = 7 Neg cover = 0]
+occurrence(A,roubo) :-
+   geo_position(A,icarai), nearby_location(A,clinica), nearby_location(A,posto_de_gasolina).
+
+[Training set performance]
+            Actual
+        +          -  
+     + 170         0         170 
+Pred 
+     - 522        1383        1905 
+
+       692        1383        2075 
+
+Accuracy = 0.748433734939759
+[Training set summary] [[170,0,522,1383]]
+[Test set performance]
+           Actual
+        +          -  
+     + 10         1         11 
+Pred 
+     - 66        152        218 
+
+       76        153        229 
+
+Accuracy = 0.707423580786026
+[Test set summary] [[10,1,66,152]]
+[time taken] [9.6]
+[total clauses constructed] [135205]
