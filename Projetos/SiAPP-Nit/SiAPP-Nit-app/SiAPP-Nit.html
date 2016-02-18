@@ -276,6 +276,7 @@
 		if(!date)
 			date = "";
 		var occurrenceType = induction.occurence_type;
+		occurrenceType = firstToUpperCase(occurrenceType.split("_").join(" "));
 		if(!occurrenceType)
 			occurrenceType = "";
 		var time = timeMap[induction.time];
