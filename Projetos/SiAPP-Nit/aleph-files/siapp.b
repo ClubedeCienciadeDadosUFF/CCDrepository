@@ -25,13 +25,9 @@
 :-determination(occurrence/2,nearby_location/2).
 :-determination(occurrence/2,in/2).
 
-:-set(minpos,2).
-:-set(test_pos,'test1.f').
-:-set(test_neg,'test1.n').
-/*
 :-set(evalfn,auto_m).
-:-set(noise,500).
-*/
+/*:-set(noise, 50).*/
+:-set(minpos,2).
 
 geo_position(69,icarai).
 business_day(69).
@@ -46,7 +42,7 @@ nearby_location(69,ponto_turistico).
 in(ponto_turistico,icarai).
 nearby_location(69,super_mercado).
 in(super_mercado,icarai).
-nearby_location(69,restaurante)
+nearby_location(69,restaurante).
 in(restaurante,icarai).
 nearby_location(69,restaurante).
 in(restaurante,icarai).
@@ -1446,7 +1442,7 @@ nearby_location(1127,posto_de_gasolina).
 in(posto_de_gasolina,sao_francisco).
 nearby_location(1127,escola).
 in(escola,sao_francisco).
-geo_position(1165,NA).
+geo_position(1165,na).
 business_day(1165).
 dawn(1165).
 object(1165,carteira).
@@ -1454,15 +1450,15 @@ object(1165,documentos).
 object(1165,cartao_de_credito).
 object(1165,outros).
 nearby_location(1165,super_mercado).
-in(super_mercado,NA).
+in(super_mercado,na).
 nearby_location(1165,posto_de_gasolina).
-in(posto_de_gasolina,NA).
+in(posto_de_gasolina,na).
 nearby_location(1165,escola).
-in(escola,NA).
+in(escola,na).
 nearby_location(1165,escola).
-in(escola,NA).
+in(escola,na).
 nearby_location(1165,policia_militar).
-in(policia_militar,NA).
+in(policia_militar,na).
 geo_position(1199,santa_rosa).
 business_day(1199).
 night(1199).
@@ -2045,7 +2041,7 @@ nearby_location(11616,banco).
 in(banco,engenho_do_mato).
 nearby_location(11616,super_mercado).
 in(super_mercado,engenho_do_mato).
-geo_position(11768,NA).
+geo_position(11768,na).
 business_day(11768).
 night(11768).
 object(11768,carteira).
