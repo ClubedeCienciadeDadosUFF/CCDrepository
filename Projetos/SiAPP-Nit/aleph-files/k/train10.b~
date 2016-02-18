@@ -28,8 +28,8 @@
 :-set(evalfn,auto_m).
 /*:-set(noise,50).*/
 :-set(minpos,2).
-:-set(test_pos, 'test2.f').
-:-set(test_neg, 'test2.n').
+:-set(test_pos, 'test9.f').
+:-set(test_neg, 'test9.n').
 
 
 geo_position(69,icarai).
