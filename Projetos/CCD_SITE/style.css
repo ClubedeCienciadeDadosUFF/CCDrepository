@@ -498,7 +498,7 @@ img{
 	z-index: 999;
 }
 .heading h3 {
-  color: #fff;
+  color: #313338;
   display: inline-block;
   float: left;
   font-size: 40px;
@@ -539,7 +539,7 @@ div[data-dimension] {
 }
 .counter_section {
   /*background-image: url("img/works_counterbg.jpg");*/
-  background-color: #ccc;
+  background-color: #f8f8f8;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: inline;
@@ -555,7 +555,7 @@ div[data-dimension] {
 }
 .counter { padding: 20px 0; border-radius: 5px;}
 .count-title {
-  color: #fff;
+  color: #313338;
   font-size: 45px;
   font-weight: bold;
   margin-bottom: 0;
@@ -563,7 +563,7 @@ div[data-dimension] {
   text-align: center;
 }
 .count-text {
-  color: #fff;
+  color: #313338;
   font-size: 18px;
   margin-bottom: 0;
   margin-top: 10px;
@@ -635,6 +635,7 @@ div[data-dimension] {
 /*--------------------*/
 
 #team{
+  background: none repeat scroll 0 0 #f8f8f8;
 	float: left;
 	display: inline;
 	width: 100%;
